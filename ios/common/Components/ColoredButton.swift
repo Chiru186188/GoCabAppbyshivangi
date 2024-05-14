@@ -17,6 +17,9 @@ public class ColoredButton: UIButton {
         redraw()
         
         
+        
+        
+        
     }
     
     override public func layoutSubviews() {
