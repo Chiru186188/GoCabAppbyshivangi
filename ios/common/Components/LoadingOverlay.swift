@@ -15,6 +15,15 @@ public class LoadingOverlay {
         return Static.instance
     }
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public func showOverlay(view: UIView!) {
         if isVisible {
             return
