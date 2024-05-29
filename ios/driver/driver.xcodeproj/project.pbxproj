@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -95,7 +95,6 @@
 		4CC666C6248633E300685BE5 /* GetStripeClientSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC666C5248633E300685BE5 /* GetStripeClientSecret.swift */; };
 		4CE9844521A81C3600900570 /* TransactionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE9844321A81C3600900570 /* TransactionsCollectionViewCell.swift */; };
 		4CE9844621A81C3600900570 /* TransactionsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CE9844421A81C3600900570 /* TransactionsCollectionViewCell.xib */; };
-		4CECD0E92580BBA60090B1F9 /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4CECD0E82580BBA60090B1F9 /* notification.mp3 */; };
 		6207A45C2197255E00688852 /* TripHistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6207A4592197255E00688852 /* TripHistoryCollectionViewCell.swift */; };
 		6207A45D2197255E00688852 /* TripHistoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6207A45A2197255E00688852 /* TripHistoryCollectionViewCell.xib */; };
 		622ABA9F1F7CFC890044B69A /* DriverTravelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622ABA9E1F7CFC890044B69A /* DriverTravelViewController.swift */; };
@@ -114,6 +113,17 @@
 		62B6FE111F71682200F66611 /* DriverMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B6FE101F71682200F66611 /* DriverMainViewController.swift */; };
 		62F12DCF22EDD96700434A05 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F12DCE22EDD96700434A05 /* ChatViewController.swift */; };
 		680C1AEE169A1469633B3949 /* Pods_driver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A40C6906CC2298EF2B9CC43 /* Pods_driver.framework */; };
+		842C7DB22BFB37230048444A /* DriverMarkedPaymentNotReceived.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C7DB12BFB37230048444A /* DriverMarkedPaymentNotReceived.swift */; };
+		843EAB512BFCA3620085A8E5 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843EAB502BFCA3620085A8E5 /* Launch Screen.storyboard */; };
+		8444558C2BF760030070FC6B /* ride_finished.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 844455872BF760020070FC6B /* ride_finished.mp3 */; };
+		8444558D2BF760030070FC6B /* new_ride.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 844455882BF760020070FC6B /* new_ride.mp3 */; };
+		8444558E2BF760030070FC6B /* ride_start.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 844455892BF760020070FC6B /* ride_start.mp3 */; };
+		8444558F2BF760030070FC6B /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8444558A2BF760030070FC6B /* notification.mp3 */; };
+		844455902BF760030070FC6B /* ride_cancel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8444558B2BF760030070FC6B /* ride_cancel.mp3 */; };
+		846DFCA32BFDBAB000E4BF05 /* CustomSliderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846DFCA22BFDBAAF00E4BF05 /* CustomSliderButton.swift */; };
+		84882DC12BFF1D9300178689 /* CustomSliderbutton2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84882DC02BFF1D9300178689 /* CustomSliderbutton2.swift */; };
+		84D61F622BFCC7B10098485E /* MTSlideToOpenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D61F612BFCC7B10098485E /* MTSlideToOpenView.swift */; };
+		84D61F662BFCD26C0098485E /* MMSlidingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D61F652BFCD26C0098485E /* MMSlidingButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,7 +223,6 @@
 		4CC666C5248633E300685BE5 /* GetStripeClientSecret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GetStripeClientSecret.swift; path = ../common/Networking/HTTP/GetStripeClientSecret.swift; sourceTree = SOURCE_ROOT; };
 		4CE9844321A81C3600900570 /* TransactionsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsCollectionViewCell.swift; sourceTree = "<group>"; };
 		4CE9844421A81C3600900570 /* TransactionsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionsCollectionViewCell.xib; sourceTree = "<group>"; };
-		4CECD0E82580BBA60090B1F9 /* notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = notification.mp3; sourceTree = "<group>"; };
 		6207A4592197255E00688852 /* TripHistoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripHistoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		6207A45A2197255E00688852 /* TripHistoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripHistoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		622ABA9E1F7CFC890044B69A /* DriverTravelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverTravelViewController.swift; sourceTree = "<group>"; };
@@ -223,7 +232,7 @@
 		625661561F7264A3003F70A4 /* DriverNavigationMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverNavigationMenuViewController.swift; sourceTree = "<group>"; };
 		627B16F721A9D49500FF0953 /* driver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = driver.entitlements; path = driver/driver.entitlements; sourceTree = "<group>"; };
 		62A08DFD1F73CDED003A4F1A /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
-		62B6FDB41F71059900F66611 /* Ridy Driver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ridy Driver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		62B6FDB41F71059900F66611 /* Go Cabs Driver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Go Cabs Driver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62B6FDB71F71059900F66611 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62B6FDBC1F71059900F66611 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		62B6FDBE1F71059900F66611 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -236,6 +245,17 @@
 		62F12DCE22EDD96700434A05 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		73B2394A3DC335EC45D326D4 /* Pods-driver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-driver.release.xcconfig"; path = "Target Support Files/Pods-driver/Pods-driver.release.xcconfig"; sourceTree = "<group>"; };
 		7A40C6906CC2298EF2B9CC43 /* Pods_driver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_driver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		842C7DB12BFB37230048444A /* DriverMarkedPaymentNotReceived.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverMarkedPaymentNotReceived.swift; sourceTree = "<group>"; };
+		843EAB502BFCA3620085A8E5 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		844455872BF760020070FC6B /* ride_finished.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ride_finished.mp3; sourceTree = "<group>"; };
+		844455882BF760020070FC6B /* new_ride.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = new_ride.mp3; sourceTree = "<group>"; };
+		844455892BF760020070FC6B /* ride_start.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ride_start.mp3; sourceTree = "<group>"; };
+		8444558A2BF760030070FC6B /* notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = notification.mp3; path = ../../../../notification.mp3; sourceTree = "<group>"; };
+		8444558B2BF760030070FC6B /* ride_cancel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ride_cancel.mp3; sourceTree = "<group>"; };
+		846DFCA22BFDBAAF00E4BF05 /* CustomSliderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSliderButton.swift; sourceTree = "<group>"; };
+		84882DC02BFF1D9300178689 /* CustomSliderbutton2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSliderbutton2.swift; sourceTree = "<group>"; };
+		84D61F612BFCC7B10098485E /* MTSlideToOpenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSlideToOpenView.swift; sourceTree = "<group>"; };
+		84D61F652BFCD26C0098485E /* MMSlidingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMSlidingButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +345,7 @@
 				4C9F4D2823893CDE005497D3 /* RequestPayment.swift */,
 				4C3E189C23AE12A20073FB05 /* WalletInfo.swift */,
 				4C6AB3E223BD386C00FAF6FE /* PaidInCash.swift */,
+				842C7DB12BFB37230048444A /* DriverMarkedPaymentNotReceived.swift */,
 				4CB8C43523D5FEA900F4BF90 /* GetStats.swift */,
 			);
 			path = WebSocket;
@@ -367,6 +388,8 @@
 			children = (
 				4CB0511D23A662480028DF0E /* InteractiveSideMenu */,
 				4CB0510A23A662400028DF0E /* ColoredButton.swift */,
+				846DFCA22BFDBAAF00E4BF05 /* CustomSliderButton.swift */,
+				84882DC02BFF1D9300178689 /* CustomSliderbutton2.swift */,
 				4CB0510B23A662400028DF0E /* DashedLineView.swift */,
 				4CB0510923A662400028DF0E /* DatePickerDialog.swift */,
 				4CB0510D23A662400028DF0E /* Error+Extensions.swift */,
@@ -444,7 +467,9 @@
 		625661511F725EA2003F70A4 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				84D61F652BFCD26C0098485E /* MMSlidingButton.swift */,
 				4CB0515023A663BC0028DF0E /* Config.swift */,
+				84D61F612BFCC7B10098485E /* MTSlideToOpenView.swift */,
 				62B6FDB71F71059900F66611 /* AppDelegate.swift */,
 			);
 			path = Application;
@@ -474,7 +499,7 @@
 		62B6FDB51F71059900F66611 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				62B6FDB41F71059900F66611 /* Ridy Driver.app */,
+				62B6FDB41F71059900F66611 /* Go Cabs Driver.app */,
 				4C85D350243611E6005722D8 /* DriverShotsUITests.xctest */,
 			);
 			name = Products;
@@ -492,9 +517,14 @@
 				62B6FE121F71708000F66611 /* Networking */,
 				62B6FDFD1F715D2100F66611 /* Controllers */,
 				62B6FDBB1F71059900F66611 /* Main.storyboard */,
+				843EAB502BFCA3620085A8E5 /* Launch Screen.storyboard */,
 				62A08DFD1F73CDED003A4F1A /* background.jpg */,
 				62B6FDBE1F71059900F66611 /* Assets.xcassets */,
-				4CECD0E82580BBA60090B1F9 /* notification.mp3 */,
+				844455882BF760020070FC6B /* new_ride.mp3 */,
+				8444558A2BF760030070FC6B /* notification.mp3 */,
+				8444558B2BF760030070FC6B /* ride_cancel.mp3 */,
+				844455872BF760020070FC6B /* ride_finished.mp3 */,
+				844455892BF760020070FC6B /* ride_start.mp3 */,
 				62B6FDC31F71059900F66611 /* Info.plist */,
 				4C826C5D245982D700471DFC /* Localizable.strings */,
 			);
@@ -665,7 +695,7 @@
 				4C74D45025835F08009831B6 /* Kingfisher */,
 			);
 			productName = driver;
-			productReference = 62B6FDB41F71059900F66611 /* Ridy Driver.app */;
+			productReference = 62B6FDB41F71059900F66611 /* Go Cabs Driver.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -706,7 +736,7 @@
 			mainGroup = 62B6FDAB1F71059900F66611;
 			packageReferences = (
 				4C481A20258229370051E415 /* XCRemoteSwiftPackageReference "SPAlert" */,
-				4C481A4C25826D100051E415 /* XCRemoteSwiftPackageReference "socket" */,
+				4C481A4C25826D100051E415 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
 				4C481A7E2582717F0051E415 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				4C481A88258271CF0051E415 /* XCRemoteSwiftPackageReference "MessageKit" */,
 				4C74D44F25835F08009831B6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
@@ -735,15 +765,20 @@
 			files = (
 				6207A45D2197255E00688852 /* TripHistoryCollectionViewCell.xib in Resources */,
 				62B6FDBF1F71059900F66611 /* Assets.xcassets in Resources */,
+				8444558D2BF760030070FC6B /* new_ride.mp3 in Resources */,
 				4C826C5B245982D700471DFC /* Localizable.strings in Resources */,
 				62398B301F72C11400327E77 /* RequestCard.xib in Resources */,
 				08C4FFC42BD0EF1600F35C0E /* GoogleService-Info.plist (Production) in Resources */,
 				62A08DFE1F73CDED003A4F1A /* background.jpg in Resources */,
-				4CECD0E92580BBA60090B1F9 /* notification.mp3 in Resources */,
+				844455902BF760030070FC6B /* ride_cancel.mp3 in Resources */,
 				62B6FDBD1F71059900F66611 /* Main.storyboard in Resources */,
+				8444558F2BF760030070FC6B /* notification.mp3 in Resources */,
 				08D141522BD1069900E34446 /* GoogleService-Info.plist in Resources */,
 				4CB8C43423D4DB6400F4BF90 /* EarningScreen.xib in Resources */,
+				843EAB512BFCA3620085A8E5 /* Launch Screen.storyboard in Resources */,
+				8444558C2BF760030070FC6B /* ride_finished.mp3 in Resources */,
 				4C6AB3DF23BD149E00FAF6FE /* WaitingForPayment.xib in Resources */,
+				8444558E2BF760030070FC6B /* ride_start.mp3 in Resources */,
 				4C6AB3E123BD1A9700FAF6FE /* cash.json in Resources */,
 				4CE9844621A81C3600900570 /* TransactionsCollectionViewCell.xib in Resources */,
 			);
@@ -802,6 +837,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-driver/Pods-driver-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Braintree/Braintree.framework",
 				"${BUILT_PRODUCTS_DIR}/BraintreeDropIn/BraintreeDropIn.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseAppCheckInterop/FirebaseAppCheckInterop.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseAuth/FirebaseAuth.framework",
@@ -828,6 +864,7 @@
 				"${BUILT_PRODUCTS_DIR}/StripePayments/StripePayments.framework",
 				"${BUILT_PRODUCTS_DIR}/StripePaymentsUI/StripePaymentsUI.framework",
 				"${BUILT_PRODUCTS_DIR}/StripeUICore/StripeUICore.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftAlgorithms/Algorithms.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/iCarousel/iCarousel.framework",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Braintree/PayPalDataCollector/PPRiskMagnes.framework/PPRiskMagnes",
@@ -837,6 +874,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Braintree.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BraintreeDropIn.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseAppCheckInterop.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseAuth.framework",
@@ -863,6 +901,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StripePayments.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StripePaymentsUI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StripeUICore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Algorithms.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iCarousel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PPRiskMagnes.framework",
@@ -910,6 +949,8 @@
 				4CB050F623A661EA0028DF0E /* Car.swift in Sources */,
 				622ABA9F1F7CFC890044B69A /* DriverTravelViewController.swift in Sources */,
 				4CB0514423A6629D0028DF0E /* NetworkDispatcher.swift in Sources */,
+				84D61F622BFCC7B10098485E /* MTSlideToOpenView.swift in Sources */,
+				846DFCA32BFDBAB000E4BF05 /* CustomSliderButton.swift in Sources */,
 				4C215E98238C06CC0013D720 /* LocationUpdate.swift in Sources */,
 				4CB0513E23A662830028DF0E /* AvailablePaymentMethods.swift in Sources */,
 				4CB8C43223D4DB2C00F4BF90 /* EarningViewController.swift in Sources */,
@@ -921,6 +962,7 @@
 				4C3E189D23AE12A20073FB05 /* WalletInfo.swift in Sources */,
 				4C9F4CFE23885EE2005497D3 /* Register.swift in Sources */,
 				62B6FE0D1F7167AD00F66611 /* AboutViewController.swift in Sources */,
+				84D61F662BFCD26C0098485E /* MMSlidingButton.swift in Sources */,
 				4CB050EE23A661EA0028DF0E /* ServiceCategory.swift in Sources */,
 				4CB0513D23A662830028DF0E /* Cancel.swift in Sources */,
 				4CB050EA23A661EA0028DF0E /* Media.swift in Sources */,
@@ -933,6 +975,7 @@
 				4C9F4D1923892D46005497D3 /* AcceptOrder.swift in Sources */,
 				4CB0513823A662830028DF0E /* WriteComplaint.swift in Sources */,
 				4CB0512923A6625D0028DF0E /* MenuViewController.swift in Sources */,
+				842C7DB22BFB37230048444A /* DriverMarkedPaymentNotReceived.swift in Sources */,
 				4CB0515123A663BC0028DF0E /* Config.swift in Sources */,
 				4CB0511023A662400028DF0E /* MapsUtil.swift in Sources */,
 				4CB0511723A662400028DF0E /* Stack.swift in Sources */,
@@ -948,6 +991,7 @@
 				62B6FE111F71682200F66611 /* DriverMainViewController.swift in Sources */,
 				4CB050F023A661EA0028DF0E /* Service.swift in Sources */,
 				625661551F726488003F70A4 /* HostViewController.swift in Sources */,
+				84882DC12BFF1D9300178689 /* CustomSliderbutton2.swift in Sources */,
 				6207A45C2197255E00688852 /* TripHistoryCollectionViewCell.swift in Sources */,
 				4C9F4D2323893089005497D3 /* Start.swift in Sources */,
 				4CB0510E23A662400028DF0E /* UserDefault.swift in Sources */,
@@ -1185,7 +1229,7 @@
 				CODE_SIGN_ENTITLEMENTS = driver/driver.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 86;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = VZNDPQUZYP;
 				INFOPLIST_FILE = driver/Info.plist;
@@ -1194,9 +1238,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2.7;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gocabs.driver;
-				PRODUCT_NAME = "Ridy Driver";
+				PRODUCT_NAME = "Go Cabs Driver";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1214,7 +1258,7 @@
 				CODE_SIGN_ENTITLEMENTS = driver/driver.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 86;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_TEAM = VZNDPQUZYP;
 				INFOPLIST_FILE = driver/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1222,9 +1266,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2.7;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gocabs.driver;
-				PRODUCT_NAME = "Ridy Driver";
+				PRODUCT_NAME = "Go Cabs Driver";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1275,7 +1319,7 @@
 				minimumVersion = 2.1.4;
 			};
 		};
-		4C481A4C25826D100051E415 /* XCRemoteSwiftPackageReference "socket" */ = {
+		4C481A4C25826D100051E415 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
 			requirement = {
@@ -1317,7 +1361,7 @@
 		};
 		4C481A4D25826D100051E415 /* SocketIO */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4C481A4C25826D100051E415 /* XCRemoteSwiftPackageReference "socket" */;
+			package = 4C481A4C25826D100051E415 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
 			productName = SocketIO;
 		};
 		4C481A7F2582717F0051E415 /* Lottie */ = {

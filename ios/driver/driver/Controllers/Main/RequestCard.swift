@@ -15,7 +15,8 @@ class RequestCard: UIView {
     @IBOutlet weak var buttonAccept: UIButton!
     @IBOutlet weak var labelCost: UILabel!
     @IBOutlet weak var constraintUser: NSLayoutConstraint!
-    
+    @IBOutlet weak var labelDropOffLocation: UILabel!
+
     var request: Request?
     var delegate: DriverRequestCardDelegate?
     @IBAction func onAcceptTouched(_ sender: UIButton) {

@@ -13,7 +13,7 @@ class GetPaymentLink: SocketRequest {
     var params: [Any]?
     
     init(gatewayId: Int, amount: Double, currency: String) {
-        let dto = GetPaymentLinkDTO(gatewayId: gatewayId, amount: amount, currency: currency, serverUrl: Config.Backend)
+        let dto = GetPaymentLinkDTO(gatewayId: gatewayId, amount: amount, currency: "USD", serverUrl: Config.Backend)
         let dic = try! dto.asDictionary()
         print(dic)
         self.params = [dic]

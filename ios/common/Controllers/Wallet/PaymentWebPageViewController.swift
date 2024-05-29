@@ -13,7 +13,8 @@ public class PaymentWebPageViewController: UIViewController, WKNavigationDelegat
     private let webView = WKWebView(frame: .zero)
     var url: String = ""
     weak var delegate: WebPaymentResultDelegate?
-    
+    var tokenstr: String = ""
+    var transactionID: String = ""
     override public func viewDidLoad() {
         super.viewDidLoad()
         webView.translatesAutoresizingMaskIntoConstraints = false
@@ -39,10 +40,25 @@ public class PaymentWebPageViewController: UIViewController, WKNavigationDelegat
            decisionHandler: @escaping (WKNavigationActionPolicy) -> Swift.Void) {
 
         let url = navigationAction.request.url!.absoluteString
+        print("url",url)
+        
+        let result = extractTokenAndPayerID(from: url)
+
+        if let token = result.token, let payerID = result.payerID {
+            print("Token: \(token)")
+            print("PayerID: \(payerID)")
+            tokenstr = token
+            transactionID = payerID
+            
+        } else {
+            print("Token or PayerID not found")
+        }
+        
+        
         if isUrlVerify(url: url) || isUrlCancel(url: url) {
             if let del = delegate {
                 if isUrlVerify(url: url) {
-                    del.paid()
+                    del.paid(token: tokenstr, transactonID: transactionID)
                 } else {
                     del.canceled()
                 }
@@ -62,10 +78,31 @@ public class PaymentWebPageViewController: UIViewController, WKNavigationDelegat
         return url.contains("ridycancelpayment")
         
     }
+    func extractTokenAndPayerID(from urlString: String) -> (token: String?, payerID: String?) {
+        guard let url = URL(string: urlString),
+              let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
+              let queryItems = components.queryItems else {
+            return (nil, nil)
+        }
+        
+        var token: String?
+        var payerID: String?
+        
+        for queryItem in queryItems {
+            if queryItem.name == "token" {
+                token = queryItem.value
+            } else if queryItem.name == "PayerID" {
+                payerID = queryItem.value
+            }
+        }
+        
+        return (token, payerID)
+    }
+
 }
 
-protocol WebPaymentResultDelegate: class {
-    func paid()
+protocol WebPaymentResultDelegate: AnyObject {
+    func paid(token:String , transactonID :String)
     func canceled()
 
 }

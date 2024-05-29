@@ -13,13 +13,17 @@ class NavigatorViewController: UINavigationController, SideMenuItemContent {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(NavigatorViewController.onMenuItemClicked), name: .menuClicked, object: nil)
         if #available(iOS 13.0, *) {
-            let navBarAppearance = UINavigationBarAppearance()
-            navBarAppearance.configureWithDefaultBackground()
-            navigationBar.standardAppearance = navBarAppearance
-            navigationBar.scrollEdgeAppearance = navBarAppearance
+//            let navBarAppearance = UINavigationBarAppearance()
+//            navBarAppearance.configureWithDefaultBackground()
+//            navigationBar.standardAppearance = navBarAppearance
+//            navigationBar.scrollEdgeAppearance = navBarAppearance
         }
     }
     @objc func onMenuItemClicked() {
         showSideMenu()
     }
 }
+//UINavigationBar.appearance().tintColor = UIColor(named: "ThemeYellow") // Tint color
+//               UINavigationBar.appearance().titleTextAttributes = [
+//                NSAttributedString.Key.foregroundColor: UIColor(named: "ThemeYellow") ?? .yellow // Text color
+//               ]

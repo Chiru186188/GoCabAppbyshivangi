@@ -30,6 +30,7 @@ public final class Request: Codable, Hashable {
     public var rating: Int?
     public var costBest: Double?
     public var costAfterCoupon: Double?
+    public var costAfterVAT: Double?
     public var providerShare: Double?
     public var rider: Rider?
     public var distanceBest: Int?
@@ -58,6 +59,8 @@ public final class Request: Codable, Hashable {
         case Finished = "Finished"
         case Booked = "Booked"
         case Expired = "Expired"
+        case DriverMarkedPaymentNotReceived = "DriverMarkedPaymentNotReceived"
+
     }
     
     public func hash(into hasher: inout Hasher) {

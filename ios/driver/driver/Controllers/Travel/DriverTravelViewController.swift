@@ -8,8 +8,76 @@
 import UIKit
 import SPAlert
 import MapKit
+import AVFoundation
 
-class DriverTravelViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class DriverTravelViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, SlideToActionButtonDelegate, SlideToActionButtonNewDelegate {
+    func didFinishNEW(identifier: String) {
+        // Check which button triggered the delegate method
+        if identifier == "Call" {
+            if let call = Request.shared.rider?.mobileNumber,
+                let url = URL(string: "tel://\(call)"),
+                UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url)
+            }
+        } else if identifier == "Start" {
+            LoadingOverlay.shared.showOverlay(view: self.navigationController?.view)
+            Start().execute() { result in
+                LoadingOverlay.shared.hideOverlayView()
+                switch result {
+                case .success(let response):
+                    Request.shared = response
+                    self.refreshScreen()
+                    
+                case .failure(let error):
+                    error.showAlert()
+                }
+            }
+        }
+    else if identifier == "Arrived" {
+        LoadingOverlay.shared.showOverlay(view: self.navigationController?.view)
+        Arrived().execute() { result in
+            LoadingOverlay.shared.hideOverlayView()
+            switch result {
+            case .success(let response):
+                Request.shared = response
+                self.refreshScreen()
+                
+            case .failure(let error):
+                error.showAlert()
+            }
+        }
+    }
+    
+    else if identifier == "Finish" {
+        if Request.shared.confirmationCode != nil {
+            showConfirmationDialog()
+        }
+        if route.count > 2 {
+            Request.shared.log = MapsUtil.encode(items: MapsUtil.simplify(items: route, tolerance: 50))
+        }
+        let f = FinishService(cost: Request.shared.costAfterVAT!, log: Request.shared.log, distance: Request.shared.distanceReal!)
+        finishTravel(finishService: f)
+        playNotificationSound(soundname: "ride_finished")
+    }
+    else if identifier == "Cancel" {
+        LoadingOverlay.shared.showOverlay(view: self.navigationController?.view)
+        Cancel().execute() { result in
+            LoadingOverlay.shared.hideOverlayView()
+            switch result {
+            case .success(_):
+                Request.shared.status = .DriverCanceled
+                self.refreshScreen()
+                
+            case .failure(let error):
+                error.showAlert()
+            }
+        }
+    }
+    
+        // Add more conditions for other buttons if needed
+    }
+    
+   
     @IBOutlet weak var labelCost: UILabel!
     @IBOutlet weak var labelTime: UILabel!
     @IBOutlet weak var map: MKMapView!
@@ -21,6 +89,14 @@ class DriverTravelViewController: UIViewController, CLLocationManagerDelegate, M
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var buttonArrived: ColoredButton!
     
+    @IBOutlet weak var buttonArrivedSlider: SlideToActionButton!
+    @IBOutlet weak var buttonstartSlide: SlideToActionButton!
+    
+    @IBOutlet weak var buttonFinishSlide: SlideToActionButton!
+    
+    
+    @IBOutlet weak var buttonCancelSLide: SlideToActionButtonNew!
+    
     var timer = Timer()
     var locationManager = CLLocationManager()
     var pointAnnotations: [MKPointAnnotation] = []
@@ -28,14 +104,28 @@ class DriverTravelViewController: UIViewController, CLLocationManagerDelegate, M
     var driverMarker = MKPointAnnotation()
     var route = [CLLocationCoordinate2D]()
     var distance: Double = 0.0
-    
+    var audioPlayer: AVAudioPlayer?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(self.travelCanceled), name: .cancelTravel, object: nil)
         NotificationCenter.default.addObserver(self, selector:#selector(self.requestRefresh), name: .connectedAfterForeground, object: nil)
-        if let cost = Request.shared.costBest {
+        if let cost = Request.shared.costAfterVAT {
             labelCost.text = MyLocale.formattedCurrency(amount: cost - (Request.shared.providerShare ?? 0), currency: Request.shared.currency!)
         }
+        CallView.delegate = self
+        CallView.identifier = "Call"
+        buttonstartSlide.delegate = self
+        buttonstartSlide.identifier = "Start"
+        buttonArrivedSlider.delegate = self
+        buttonArrivedSlider.identifier = "Arrived"
+        
+        
+        buttonCancelSLide.delegate = self
+        buttonCancelSLide.identifier = "Cancel"
+        
+        buttonFinishSlide.delegate = self
+        buttonFinishSlide.identifier = "Finish"
         map.delegate = self
         map.layoutMargins = UIEdgeInsets(top: 50, left: 0, bottom: 300, right: 0)
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
@@ -57,9 +147,138 @@ class DriverTravelViewController: UIViewController, CLLocationManagerDelegate, M
         self.navigationItem.hidesBackButton = true
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.onEachSecond), userInfo: nil, repeats: true)
     }
+    func didFinish(identifier: String) {
+            // Check which button triggered the delegate method
+            if identifier == "Call" {
+                if let call = Request.shared.rider?.mobileNumber,
+                    let url = URL(string: "tel://\(call)"),
+                    UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url)
+                }
+            } else if identifier == "Start" {
+                LoadingOverlay.shared.showOverlay(view: self.navigationController?.view)
+                Start().execute() { result in
+                    LoadingOverlay.shared.hideOverlayView()
+                    switch result {
+                    case .success(let response):
+                        Request.shared = response
+                        self.refreshScreen()
+                        
+                    case .failure(let error):
+                        error.showAlert()
+                    }
+                }
+            }
+        else if identifier == "Arrived" {
+            LoadingOverlay.shared.showOverlay(view: self.navigationController?.view)
+            Arrived().execute() { result in
+                LoadingOverlay.shared.hideOverlayView()
+                switch result {
+                case .success(let response):
+                    Request.shared = response
+                    self.refreshScreen()
+                    
+                case .failure(let error):
+                    error.showAlert()
+                }
+            }
+        }
+        
+        else if identifier == "Finish" {
+            if Request.shared.confirmationCode != nil {
+                showConfirmationDialog()
+            }
+            if route.count > 2 {
+                Request.shared.log = MapsUtil.encode(items: MapsUtil.simplify(items: route, tolerance: 50))
+            }
+            let f = FinishService(cost: Request.shared.costAfterVAT!, log: Request.shared.log, distance: Request.shared.distanceReal!)
+            finishTravel(finishService: f)
+            playNotificationSound(soundname: "ride_finished")
+        }
+        else if identifier == "Cancel" {
+            LoadingOverlay.shared.showOverlay(view: self.navigationController?.view)
+            Cancel().execute() { result in
+                LoadingOverlay.shared.hideOverlayView()
+                switch result {
+                case .success(_):
+                    Request.shared.status = .DriverCanceled
+                    self.refreshScreen()
+                    
+                case .failure(let error):
+                    error.showAlert()
+                }
+            }
+        }
+        
+            // Add more conditions for other buttons if needed
+        }
+    
+    
+    func drawRoute(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D) {
+           let sourcePlacemark = MKPlacemark(coordinate: source)
+           let destinationPlacemark = MKPlacemark(coordinate: destination)
+           
+           let sourceItem = MKMapItem(placemark: sourcePlacemark)
+           let destinationItem = MKMapItem(placemark: destinationPlacemark)
+           
+           let request = MKDirections.Request()
+           request.source = sourceItem
+           request.destination = destinationItem
+           request.transportType = .automobile
+           
+           let directions = MKDirections(request: request)
+           directions.calculate { (response, error) in
+               guard let response = response else {
+                   if let error = error {
+                       print("Error calculating directions: \(error.localizedDescription)")
+                   }
+                   return
+               }
+               let route = response.routes[0]
+               self.map.addOverlay(route.polyline, level: .aboveRoads)
+           }
+       }
+
+       // Function to remove all overlays (polylines) from the map
+       func removeRoutes() {
+           let overlays = map.overlays
+           map.removeOverlays(overlays)
+       }
+
+       // MKMapViewDelegate method to render overlays (polylines)
+       func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+           if let polyline = overlay as? MKPolyline {
+               let renderer = MKPolylineRenderer(polyline: polyline)
+               renderer.strokeColor = UIColor.blue
+               renderer.lineWidth = 3
+               return renderer
+           }
+           return MKOverlayRenderer()
+       }
+
+       // Function to update route display
+       private func updateRouteDisplay() {
+           removeRoutes() // Clear previous routes
+           if let driverLocation = locationManager.location?.coordinate,
+              let riderLocation = Request.shared.points.first {
+               drawRoute(from: driverLocation, to: riderLocation)
+           }
+           if Request.shared.status == .Started {
+               for i in 0..<Request.shared.points.count - 1 {
+                   drawRoute(from: Request.shared.points[i], to: Request.shared.points[i + 1])
+               }
+           }
+       }
+
+    
+   
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        updateRouteDisplay()
+
         self.requestRefresh()
     }
     
@@ -77,7 +296,15 @@ class DriverTravelViewController: UIViewController, CLLocationManagerDelegate, M
             }
         }
     }
-    
+    func playNotificationSound(soundname: String) {
+           guard let url = Bundle.main.url(forResource: soundname, withExtension: "mp3") else { return }
+           do {
+               audioPlayer = try AVAudioPlayer(contentsOf: url)
+               audioPlayer?.play()
+           } catch let error {
+               print("Error playing notification sound: \(error.localizedDescription)")
+           }
+       }
     @IBAction func onFinishTapped(_ sender: UIButton) {
         if Request.shared.confirmationCode != nil {
             showConfirmationDialog()
@@ -85,15 +312,16 @@ class DriverTravelViewController: UIViewController, CLLocationManagerDelegate, M
         if route.count > 2 {
             Request.shared.log = MapsUtil.encode(items: MapsUtil.simplify(items: route, tolerance: 50))
         }
-        let f = FinishService(cost: Request.shared.costBest!, log: Request.shared.log, distance: Request.shared.distanceReal!)
+        let f = FinishService(cost: Request.shared.costAfterVAT!, log: Request.shared.log, distance: Request.shared.distanceReal!)
         finishTravel(finishService: f)
+        playNotificationSound(soundname: "ride_finished")
     }
     
     func showConfirmationDialog() {
         let question = UIAlertController(title: "Confirmation", message: "Finishing this service needs confirmation code delivered to user. Please enter it in following field:", preferredStyle: .alert)
         question.addAction(UIAlertAction(title: "OK", style: .default) { action in
             let code = question.textFields![0].text!
-            let f = FinishService(cost: Request.shared.costBest!, distance: Request.shared.distanceReal!, confirmationCode: Int(code)!)
+            let f = FinishService(cost: Request.shared.costAfterVAT!, distance: Request.shared.distanceReal!, confirmationCode: Int(code)!)
             self.finishTravel(finishService: f)
         })
         question.addTextField() { textField in
@@ -193,14 +421,22 @@ class DriverTravelViewController: UIViewController, CLLocationManagerDelegate, M
                 self.navigationController?.popViewController(animated: true)
             })
             present(alert, animated: true)
+            if (travel.status == .RiderCanceled ){
+                playNotificationSound(soundname: "ride_cancel")
+
+            }
             break;
-            
+                
         case .DriverAccepted:
             buttonFinish.isHidden = true
+            buttonFinishSlide.isHidden = true
+
             buttonStart.isHidden = true
+            buttonstartSlide.isHidden = true
+
             let ann = MKPointAnnotation()
             ann.coordinate = travel.points[0]
-            ann.title = travel.addresses[0]
+            ann.title =  travel.addresses[0]
             pointAnnotations.append(ann)
             map.addAnnotation(ann)
             if map.annotations.count > 1 {
@@ -208,19 +444,32 @@ class DriverTravelViewController: UIViewController, CLLocationManagerDelegate, M
             } else {
                 map.setCenter(map.annotations[0].coordinate, animated: true)
             }
+            playNotificationSound(soundname: "notification")
             break;
             
         case .Arrived:
             buttonStart.isHidden = false
+            buttonstartSlide.isHidden = false
+
             buttonArrived.isHidden = true
+            buttonArrivedSlider.isHidden = true
+
             
         case .Started:
             buttonMessage.isHidden = true
             buttonCall.isHidden = true
             buttonCancel.isHidden = true
+            buttonCancelSLide.isHidden = true
+
             buttonStart.isHidden = true
+            buttonstartSlide.isHidden = true
+            
+            buttonFinishSlide.isHidden = false
+
             buttonFinish.isHidden = false
             buttonArrived.isHidden = true
+            buttonArrivedSlider.isHidden = true
+
             if pointAnnotations.count > 0 {
                 for point in pointAnnotations {
                     map.removeAnnotation(point)
@@ -259,6 +508,9 @@ class DriverTravelViewController: UIViewController, CLLocationManagerDelegate, M
             })
             self.present(alert, animated: true)
         }
+        
+        updateRouteDisplay()
+
     }
     
     @objc func travelCanceled() {
@@ -354,6 +606,8 @@ class DriverTravelViewController: UIViewController, CLLocationManagerDelegate, M
             labelTime.text = formatter.string(from: now, to: etaTime)
         }
         recalculateCost()
+        //updateRouteDisplay()
+
         
     }
     
@@ -386,6 +640,9 @@ class DriverTravelViewController: UIViewController, CLLocationManagerDelegate, M
         }
     }
     
+    @IBOutlet weak var CallView: SlideToActionButtonNew!
+    
+    
     @IBAction func onCallTouched(_ sender: UIButton) {
         if let call = Request.shared.rider?.mobileNumber,
             let url = URL(string: "tel://\(call)"),
@@ -393,4 +650,6 @@ class DriverTravelViewController: UIViewController, CLLocationManagerDelegate, M
                 UIApplication.shared.open(url)
         }
     }
+    
+    
 }

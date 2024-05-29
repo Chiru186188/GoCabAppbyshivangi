@@ -117,7 +117,7 @@ class TripHistoryCollectionViewController: UICollectionViewController, UICollect
         if let finishTimestamp = travel.finishTimestamp {
             cell.finishTimeLabel.text = dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(finishTimestamp / 1000)))
         }
-        cell.textCost.text = MyLocale.formattedCurrency(amount: travel.costAfterCoupon ?? 0, currency: travel.currency!)
+        cell.textCost.text = MyLocale.formattedCurrency(amount: travel.costAfterVAT ?? 0, currency: travel.currency!)
         
         cell.textStatus.text = travel.status!.rawValue.splitBefore(separator: { $0.isUppercase }).map{String($0)}.joined(separator: " ")
         return cell

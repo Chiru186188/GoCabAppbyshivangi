@@ -113,7 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         
         let token = Messaging.messaging().fcmToken
-        print("FCM token: \(token ?? "")")
+        print("FCM token: \(token ?? "dN6nMccv50NVsvIDrMmhQG:APA91bFhiQD2nw_elHjsLl2POhHcPJebUa1YeJCPEQHaMXotmQlpZvzWIt4gYMOVJJi_aRx8UyQ2acVTYgaw_CMjDAEKU-QJvABFYvHcrBzVHW4qQBome2I7HPpx-eYpnFObuisR4kgS")")
         UserDefaults.standard.set(token, forKey: "devicetoken")
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self
@@ -128,6 +128,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
    
      //   Stripe.setDefaultPublishableKey("pk_test_51NgLDISE7jTLonNSqrc5nylSHJcp0ijO0qd9R2VDQw3w37uif2yASpc8dJU3LwBGdaQJsNTz7rwFh4kylzAy56nE00kiCrsIcP")
+        
+        
+        
+        let navigationBarAppearace = UINavigationBar.appearance()
+
+        navigationBarAppearace.tintColor = UIColor(named: "ThemeYellow")
+        navigationBarAppearace.barTintColor = .black
+//        navigationBarAppearace.isTranslucent = false
+//        navigationBarAppearace.backgroundColor = .black
+        // change navigation item title color
+        navigationBarAppearace.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "ThemeYellow")]
+        
+        
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+        
         return true
         
     }
@@ -153,40 +168,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        LoadingOverlay.shared.hideOverlayView()
-        SocketNetworkDispatcher.instance.disconnect()
+//        LoadingOverlay.shared.hideOverlayView()
+//        SocketNetworkDispatcher.instance.disconnect()
     }
     
-//    func applicationWillEnterForeground(_ application: UIApplication) {
-//        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-//        guard let jwt = UserDefaultsConfig.jwtToken else {
-//            return
-//        }
-//        // LoadingOverlay.shared.showOverlay(view: self.window?.rootViewController?.presentedViewController?.view)
-//        if let presented = self.window?.rootViewController?.presentedViewController {
-//            LoadingOverlay.shared.showOverlay(view: presented.view)
-//        } else {
-//            LoadingOverlay.shared.showOverlay(view: self.window?.rootViewController?.view)
-//        }
-//        Messaging.messaging().token() { token, error in
-//
-//        }
-//        Messaging.messaging().token() { (fcmToken, error) in
-//            print("fcmToken%@",fcmToken as Any)
-//            print("fcmTokenerror%@",error as Any)
-//
-//            SocketNetworkDispatcher.instance.connect(namespace: .Rider, token: jwt, notificationId: fcmToken ?? "") { result in
-//                LoadingOverlay.shared.hideOverlayView()
-//                switch result {
-//                case .success(_):
-//                    NotificationCenter.default.post(name: .connectedAfterForeground, object: nil)
-//
-//                case .failure(_):
-//                    break
-//                }
-//            }
-//        }
-//    }
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        guard let jwt = UserDefaultsConfig.jwtToken else {
+            return
+        }
+        // LoadingOverlay.shared.showOverlay(view: self.window?.rootViewController?.presentedViewController?.view)
+        if let presented = self.window?.rootViewController?.presentedViewController {
+            LoadingOverlay.shared.showOverlay(view: presented.view)
+        } else {
+            LoadingOverlay.shared.showOverlay(view: self.window?.rootViewController?.view)
+        }
+        Messaging.messaging().token() { token, error in
+
+        }
+        Messaging.messaging().token() { (fcmToken, error) in
+            print("fcmToken%@",fcmToken as Any)
+            print("fcmTokenerror%@",error as Any)
+
+            SocketNetworkDispatcher.instance.connect(namespace: .Rider, token: jwt, notificationId: fcmToken ?? "") { result in
+                LoadingOverlay.shared.hideOverlayView()
+                switch result {
+                case .success(_):
+                    NotificationCenter.default.post(name: .connectedAfterForeground, object: nil)
+
+                case .failure(_):
+                    break
+                }
+            }
+        }
+    }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         

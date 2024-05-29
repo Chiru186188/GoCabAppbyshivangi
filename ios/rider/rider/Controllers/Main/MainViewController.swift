@@ -35,7 +35,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, ServiceRe
         locationManager.requestWhenInUseAuthorization()
         map.delegate = self
         pinAnnotation.frame = CGRect(x: (self.view.frame.width / 2) - 8, y: self.view.frame.height / 2 - 8, width: 32, height: 39)
-        pinAnnotation.pinTintColor = UIApplication.shared.keyWindow?.tintColor
+        pinAnnotation.pinTintColor = UIColor.darkGray //UIApplication.shared.keyWindow?.tintColor
         map.addSubview(pinAnnotation)
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "SuggestionsTableTableViewController") as! SuggestionsTableTableViewController
         locationSearchTable.callback = self
@@ -44,6 +44,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, ServiceRe
         searchController?.hidesNavigationBarDuringPresentation = false
         definesPresentationContext = true
         self.navigationItem.searchController = searchController
+        self.navigationItem.searchController?.searchBar.backgroundColor = .white
         GetCurrentRequestInfo().execute() { result in
             switch result {
             case .success(let response):
@@ -59,12 +60,23 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, ServiceRe
             }
         }
     }
-    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay is MKPolyline {
+            let polylineRenderer = MKPolylineRenderer(overlay: overlay)
+            polylineRenderer.strokeColor = .blue
+            polylineRenderer.lineWidth = 4.0
+            return polylineRenderer
+        }
+        return MKOverlayRenderer(overlay: overlay)
+    }
+
     func goBackFromServiceSelection() {
         LoadingOverlay.shared.hideOverlayView()
         leftBarButton.image = UIImage(named: "menu")
         map.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         map.removeAnnotations(pointsAnnotations)
+        map.removeOverlays(map.overlays)
+
         pointsAnnotations.removeAll()
         buttonAddDestination.isHidden = true
         buttonConfirmFinalDestination.isHidden = true
@@ -74,7 +86,34 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, ServiceRe
         self.pinAnnotation.isHidden = false
         map.isUserInteractionEnabled = true
     }
-    
+    func drawRoute(from sourceCoordinate: CLLocationCoordinate2D, to destinationCoordinate: CLLocationCoordinate2D) {
+        let sourcePlacemark = MKPlacemark(coordinate: sourceCoordinate)
+        let destinationPlacemark = MKPlacemark(coordinate: destinationCoordinate)
+        
+        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
+        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
+        
+        let directionsRequest = MKDirections.Request()
+        directionsRequest.source = sourceMapItem
+        directionsRequest.destination = destinationMapItem
+        directionsRequest.transportType = .automobile
+        
+        let directions = MKDirections(request: directionsRequest)
+        directions.calculate { response, error in
+            guard let response = response else {
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                }
+                return
+            }
+            
+            if let route = response.routes.first {
+                self.map.addOverlay(route.polyline)
+                self.map.setVisibleMapRect(route.polyline.boundingMapRect, edgePadding: UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50), animated: true)
+            }
+        }
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? ServicesParentViewController,
             segue.identifier == "segueServices" {
@@ -153,6 +192,12 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, ServiceRe
         let locs = pointsAnnotations.map() { annotation in
             return LocationWithName(loc: annotation.coordinate, add: annotation.title!)
         }
+        
+        print("Loca1",locs[0].add)
+        UserDefaults.standard.set(locs[0].add, forKey: "LOCA")
+        print("Loca2",locs[1].add)
+        UserDefaults.standard.set(locs[1].add, forKey: "LOCB")
+
         let feedbackGenerator = UISelectionFeedbackGenerator()
         feedbackGenerator.selectionChanged()
         RequestService(obj: RequestDTO(locations: locs, services: [OrderedService(serviceId: service.id!, quantity: 1)])).execute() { result in
@@ -232,10 +277,15 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, ServiceRe
         let ann = MKPointAnnotation()
         ann.coordinate = map.camera.centerCoordinate
         ann.title = (self.navigationItem.searchController?.searchBar.text)!
+        
         pointsAnnotations.append(ann)
         map.addAnnotation(ann)
         let cameraTarget = CLLocationCoordinate2D(latitude: map.camera.centerCoordinate.latitude + 0.0015, longitude: map.camera.centerCoordinate.longitude)
         map.setCenter(cameraTarget, animated: true)
+        if pointsAnnotations.count == 2 {
+             // Assuming the first point is the pickup and the second is the drop-off
+             drawRoute(from: pointsAnnotations[0].coordinate, to: pointsAnnotations[1].coordinate)
+         }
         if(!AppDelegate.singlePointMode) {
             buttonConfirmPickup.isHidden = true
             buttonConfirmFinalDestination.isHidden = false

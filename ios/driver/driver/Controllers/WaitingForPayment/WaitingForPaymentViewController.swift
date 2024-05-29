@@ -12,9 +12,12 @@ import Lottie
 class WaitingForPaymentViewController: UIViewController {
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var viewLoading: UIView!
-    @IBOutlet weak var buttonCash: ColoredButton!
     
-    var animationView: AnimationView!
+    @IBOutlet weak var buttonCash: UIButton!
+    
+    
+    @IBOutlet weak var buttonPaymnetNotReceived: UIButton!
+    var animationView: LottieAnimationView!
     var onDone: ((Bool) -> Void)?
     
     override func viewDidLoad() {
@@ -25,7 +28,7 @@ class WaitingForPaymentViewController: UIViewController {
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = self.view.bounds
         self.backgroundView.addSubview(blurEffectView)
-        animationView = AnimationView(name: "cash")
+        animationView = LottieAnimationView(name: "cash")
         animationView.contentMode = .scaleAspectFit
         animationView.translatesAutoresizingMaskIntoConstraints = false
         animationView.loopMode = .loop
@@ -54,6 +57,22 @@ class WaitingForPaymentViewController: UIViewController {
             }
         }
     }
+   
+    @IBAction func notreceive(_ sender: Any) {
+        LoadingOverlay.shared.showOverlay(view: self.view)
+        DriverMarkedPaymentNotReceived().execute() { result in
+            LoadingOverlay.shared.hideOverlayView()
+            switch result {
+            case .success(_):
+                self.onDone?(true)
+                self.dismiss(animated: true, completion: nil)
+                
+            case .failure(let error):
+                error.showAlert()
+            }
+        }
+    }
+    
     
     @objc private func requestRefresh() {
         animationView.play()

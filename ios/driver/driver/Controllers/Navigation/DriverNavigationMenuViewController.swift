@@ -72,15 +72,15 @@ class DriverNavigationMenuViewController : MenuViewController {
         self.present(dialog, animated: true)
     }
     
-//    @IBAction func onStatisticsTouched(_ sender: Any) {
-//        guard let menuContainerViewController = self.menuContainerViewController else {
-//            return
-//        }
-//        if let vc = Bundle.main.loadNibNamed("EarningScreen", owner: self, options: nil)?.first as? EarningViewController {
-//        (menuContainerViewController.contentViewControllers[0] as! UINavigationController).pushViewController(vc, animated: true)
-//            menuContainerViewController.hideSideMenu()
-//        }
-//    }
+    @IBAction func onStatisticsTouched(_ sender: Any) {
+        guard let menuContainerViewController = self.menuContainerViewController else {
+            return
+        }
+        if let vc = Bundle.main.loadNibNamed("EarningScreen", owner: self, options: nil)?.first as? EarningViewController {
+        (menuContainerViewController.contentViewControllers[0] as! UINavigationController).pushViewController(vc, animated: true)
+            menuContainerViewController.hideSideMenu()
+        }
+    }
     
     @IBAction func onTravelsClicked(_ sender: UIButton) {
         guard let menuContainerViewController = self.menuContainerViewController else {

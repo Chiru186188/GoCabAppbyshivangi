@@ -7,7 +7,7 @@
 
 import UIKit
 import MapKit
-
+import AVFoundation
 import iCarousel
 
 class DriverMainViewController: UIViewController, CLLocationManagerDelegate {
@@ -17,7 +17,16 @@ class DriverMainViewController: UIViewController, CLLocationManagerDelegate {
     
     var requests : [Request] = []
     var locationManager = CLLocationManager()
-    
+    var audioPlayer: AVAudioPlayer?
+    func playNotificationSound(soundname: String) {
+           guard let url = Bundle.main.url(forResource: soundname, withExtension: "mp3") else { return }
+           do {
+               audioPlayer = try AVAudioPlayer(contentsOf: url)
+               audioPlayer?.play()
+           } catch let error {
+               print("Error playing notification sound: \(error.localizedDescription)")
+           }
+       }
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(self.onRequestReceived), name: .requestReceived, object: self)
@@ -120,11 +129,15 @@ extension DriverMainViewController: iCarouselDataSource, iCarouselDelegate {
     }
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
+       
+        playNotificationSound(soundname: "new_ride")
         let vc = Bundle.main.loadNibNamed("RequestCard", owner: self, options: nil)?[0] as! RequestCard
         
         let travel = requests[requests.index(requests.startIndex, offsetBy: index)]
         vc.request = travel
         vc.labelPickupLocation.text = travel.addresses[0]
+        vc.labelDropOffLocation.text = travel.addresses[1]
+
         let distanceDriver = CLLocation.distance(from: map.userLocation.coordinate, to: travel.points[0])
         vc.labelFromYou.text = MKDistanceFormatter().string(fromDistance: distanceDriver)
         vc.labelDistance.text = MKDistanceFormatter().string(fromDistance: Double(travel.distanceBest!))
@@ -148,6 +161,8 @@ extension DriverMainViewController: iCarouselDataSource, iCarouselDelegate {
     }
 }
 extension DriverMainViewController: DriverRequestCardDelegate {
+    
+    
     func accept(request: Request) {
         LoadingOverlay.shared.showOverlay(view: self.navigationController?.view)
         AcceptOrder(requestId: request.id!).execute() { result in

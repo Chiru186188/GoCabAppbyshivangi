@@ -113,7 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         
         let token = Messaging.messaging().fcmToken
-        print("FCM token: \(token ?? "")")
+        print("FCM token: \(token ?? "dN6nMccv50NVsvIDrMmhQG:APA91bFhiQD2nw_elHjsLl2POhHcPJebUa1YeJCPEQHaMXotmQlpZvzWIt4gYMOVJJi_aRx8UyQ2acVTYgaw_CMjDAEKU-QJvABFYvHcrBzVHW4qQBome2I7HPpx-eYpnFObuisR4kgS")")
         UserDefaults.standard.set(token, forKey: "devicetoken")
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self
@@ -128,9 +128,66 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
    
      //   Stripe.setDefaultPublishableKey("pk_test_51NgLDISE7jTLonNSqrc5nylSHJcp0ijO0qd9R2VDQw3w37uif2yASpc8dJU3LwBGdaQJsNTz7rwFh4kylzAy56nE00kiCrsIcP")
+        
+        
+//
+//        UINavigationBar.appearance().backgroundColor = UIColor.black
+////
+//        UINavigationBar.appearance().barTintColor = UIColor.black // Background color
+//               UINavigationBar.appearance().tintColor = UIColor(named: "ThemeYellow") // Tint color
+//               UINavigationBar.appearance().titleTextAttributes = [
+//                NSAttributedString.Key.foregroundColor: UIColor(named: "ThemeYellow") ?? .yellow // Text color
+//               ]
+//
+        
+        let navigationBarAppearace = UINavigationBar.appearance()
+
+        navigationBarAppearace.tintColor = UIColor(named: "ThemeYellow")
+        navigationBarAppearace.barTintColor = .black
+        navigationBarAppearace.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "ThemeYellow")]
+        
+        
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+
+        
+               
+
+                if UserDefaults.standard.string(forKey: "Firsttyme") != nil {
+                    // Replace `MainViewController` with your main app view controller
+                    // or SplashViewController if that is the main screen
+                    
+                    let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let navigationController:UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+                    let rootViewController:UIViewController = storyboard.instantiateViewController(withIdentifier: "SplashViewController") as UIViewController
+
+                    navigationController.viewControllers = [rootViewController]
+                    self.window?.rootViewController = navigationController
+                } else {
+                    
+                    
+                    let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let navigationController:UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+                    let rootViewController:UIViewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as UIViewController
+
+                    navigationController.viewControllers = [rootViewController]
+                    self.window?.rootViewController = navigationController
+                }
+
+             
+        
+        
         return true
         
     }
+    
+    func uicolorFromHex(rgbValue:UInt32)->UIColor{
+        let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
+        let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
+        let blue = CGFloat(rgbValue & 0xFF)/256.0
+
+        return UIColor(red:red, green:green, blue:blue, alpha:1.0)
+    }
+    
     func messaging(
         _ messaging: Messaging,
         didReceiveRegistrationToken fcmToken: String?
@@ -153,40 +210,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        LoadingOverlay.shared.hideOverlayView()
-        SocketNetworkDispatcher.instance.disconnect()
+//        LoadingOverlay.shared.hideOverlayView()
+//        SocketNetworkDispatcher.instance.disconnect()
     }
     
-//    func applicationWillEnterForeground(_ application: UIApplication) {
-//        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-//        guard let jwt = UserDefaultsConfig.jwtToken else {
-//            return
-//        }
-//        // LoadingOverlay.shared.showOverlay(view: self.window?.rootViewController?.presentedViewController?.view)
-//        if let presented = self.window?.rootViewController?.presentedViewController {
-//            LoadingOverlay.shared.showOverlay(view: presented.view)
-//        } else {
-//            LoadingOverlay.shared.showOverlay(view: self.window?.rootViewController?.view)
-//        }
-//        Messaging.messaging().token() { token, error in
-//            
-//        }
-//        Messaging.messaging().token() { (fcmToken, error) in
-//            print("fcmToken%@",fcmToken as Any)
-//            print("fcmTokenerror%@",error as Any)
-//
-//            SocketNetworkDispatcher.instance.connect(namespace: .Rider, token: jwt, notificationId: fcmToken ?? "") { result in
-//                LoadingOverlay.shared.hideOverlayView()
-//                switch result {
-//                case .success(_):
-//                    NotificationCenter.default.post(name: .connectedAfterForeground, object: nil)
-//                    
-//                case .failure(_):
-//                    break
-//                }
-//            }
-//        }
-//    }
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        guard let jwt = UserDefaultsConfig.jwtToken else {
+            return
+        }
+        // LoadingOverlay.shared.showOverlay(view: self.window?.rootViewController?.presentedViewController?.view)
+        if let presented = self.window?.rootViewController?.presentedViewController {
+            LoadingOverlay.shared.showOverlay(view: presented.view)
+        } else {
+            LoadingOverlay.shared.showOverlay(view: self.window?.rootViewController?.view)
+        }
+        Messaging.messaging().token() { token, error in
+            
+        }
+        Messaging.messaging().token() { (fcmToken, error) in
+            print("fcmToken%@",fcmToken as Any)
+            print("fcmTokenerror%@",error as Any)
+
+            SocketNetworkDispatcher.instance.connect(namespace: .Rider, token: jwt, notificationId: fcmToken ?? "") { result in
+                LoadingOverlay.shared.hideOverlayView()
+                switch result {
+                case .success(_):
+                    NotificationCenter.default.post(name: .connectedAfterForeground, object: nil)
+                    
+                case .failure(_):
+                    break
+                }
+            }
+        }
+    }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         

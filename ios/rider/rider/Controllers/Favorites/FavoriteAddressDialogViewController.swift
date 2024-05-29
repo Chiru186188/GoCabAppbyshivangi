@@ -20,10 +20,17 @@ class FavoriteAddressDialogViewController: UIViewController {
             textTitle.text = address?.title
             textAddress.text = address?.address
             map.setCenter((address?.location)!, animated: true)
+            let regionRadius: CLLocationDistance = 10 // 1 kilometer
+                       let coordinateRegion = MKCoordinateRegion(center: (address?.location)!, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+                       map.setRegion(coordinateRegion, animated: true)
+
         } else {
             let locationManager = CLLocationManager()
             if let location = locationManager.location {
                 map.setCenter(location.coordinate, animated: true)
+                let regionRadius: CLLocationDistance = 10 // 1 kilometer
+                let coordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+                                      map.setRegion(coordinateRegion, animated: true)
             }
         }
 

@@ -19,7 +19,7 @@ class FinishedServiceViewController: FormViewController {
         form +++ Section(NSLocalizedString("Summary", comment: ""))
             <<< LabelRow() { row in
                 row.title = NSLocalizedString("Final fee", comment: "")
-                row.value = MyLocale.formattedCurrency(amount: travel.costAfterCoupon!, currency: travel.currency!)
+                row.value = MyLocale.formattedCurrency(amount: travel.costAfterVAT!, currency: travel.currency!)
             }
             /*<<< PushRow<String>() {
             $0.title = NSLocalizedString("Payment Method", comment: "Payment Method")
@@ -60,14 +60,56 @@ class FinishedServiceViewController: FormViewController {
                         case .success(_):
                             SPAlert.present(title: NSLocalizedString(NSLocalizedString("Thanks for review!", comment: ""), comment: ""), preset: .star)
                             Request.shared.status = .Finished
-                            self.navigationController?.popViewController(animated: true)
-                            
+                           // self.navigationController?.popViewController(animated: true)
+                            if let viewControllers = self.navigationController?.viewControllers {
+                                // Ensure there are at least 3 view controllers in the stack
+                                if viewControllers.count >= 2 {
+                                    // Calculate the target view controller
+                                    let targetViewController = viewControllers[viewControllers.count - 3]
+                                    
+                                    // Pop to the target view controller
+                                    self.navigationController?.popToViewController(targetViewController, animated: true)
+                                }
+                            }
                         case .failure(let error):
                             error.showAlert()
                         }
                     }
                 }
         }
+        
+        
+        <<< ButtonRow() { row in
+            row.title = NSLocalizedString("Cancel", comment: "")
+            row.onCellSelection() { cell, row in
+//                guard let _score = self.score else {
+//                    SPAlert.present(title: NSLocalizedString(NSLocalizedString("you haven't selected any score point.", comment: ""), comment: ""), preset: .exclamation)
+//                    return;
+//                }
+                LoadingOverlay.shared.showOverlay(view: self.navigationController?.view)
+                ReviewDriver(review: Review(score: 0, review: "")).execute() { result in
+                    LoadingOverlay.shared.hideOverlayView()
+                    switch result {
+                    case .success(_):
+                       // SPAlert.present(title: NSLocalizedString(NSLocalizedString("Thanks for review!", comment: ""), comment: ""), preset: .star)
+//                        Request.shared.status = .Finished
+                       // self.navigationController?.popViewController(animated: true)
+                        if let viewControllers = self.navigationController?.viewControllers {
+                            // Ensure there are at least 3 view controllers in the stack
+                            if viewControllers.count >= 2 {
+                                // Calculate the target view controller
+                                let targetViewController = viewControllers[viewControllers.count - 3]
+                                
+                                // Pop to the target view controller
+                                self.navigationController?.popToViewController(targetViewController, animated: true)
+                            }
+                        }
+                    case .failure(let error):
+                        error.showAlert()
+                    }
+                }
+            }
+    }
         
     }
 }

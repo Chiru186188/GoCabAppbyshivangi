@@ -26,6 +26,10 @@ PODS:
     - Braintree/ThreeDSecure (~> 5.23)
     - Braintree/UnionPay (~> 5.23)
     - Braintree/Venmo (~> 5.23)
+  - Charts (4.1.0):
+    - Charts/Core (= 4.1.0)
+  - Charts/Core (4.1.0):
+    - SwiftAlgorithms (~> 1.0)
   - Eureka (5.3.6)
   - Firebase/Analytics (10.24.0):
     - Firebase/Core
@@ -199,9 +203,11 @@ PODS:
     - StripeUICore (= 23.27.0)
   - StripeUICore (23.27.0):
     - StripeCore (= 23.27.0)
+  - SwiftAlgorithms (1.0.0)
 
 DEPENDENCIES:
   - BraintreeDropIn
+  - Charts
   - Eureka
   - Firebase/Analytics
   - Firebase/Crashlytics
@@ -215,6 +221,7 @@ SPEC REPOS:
   trunk:
     - Braintree
     - BraintreeDropIn
+    - Charts
     - Eureka
     - Firebase
     - FirebaseAnalytics
@@ -247,10 +254,12 @@ SPEC REPOS:
     - StripePayments
     - StripePaymentsUI
     - StripeUICore
+    - SwiftAlgorithms
 
 SPEC CHECKSUMS:
   Braintree: bf30e7852422d63a8f83f30eaa8c190e809f6120
   BraintreeDropIn: b061dfec19f79f4ebd7a707c07176ac23a3b9cfe
+  Charts: ce0768268078eee0336f122c3c4ca248e4e204c5
   Eureka: 28ad9dec6286cd7cd601fdf8e8df39bb7356a8f4
   Firebase: 91fefd38712feb9186ea8996af6cbdef41473442
   FirebaseAnalytics: b5efc493eb0f40ec560b04a472e3e1a15d39ca13
@@ -283,7 +292,8 @@ SPEC CHECKSUMS:
   StripePayments: feb5245e89c901edd849436f9f35d285619a1ccc
   StripePaymentsUI: 000e30dc6bc5b04f36f8a9fac80b6a4a5298cd99
   StripeUICore: 31c66d62940078bd132c23a1fe9ec8746edc02a2
+  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
 
-PODFILE CHECKSUM: 2dbaa1a41f262a3e4b2053961eea9685f6b938e8
+PODFILE CHECKSUM: 5aaa3560f5cbe559311dd084047ea18069c577dd
 
-COCOAPODS: 1.14.2
+COCOAPODS: 1.12.1

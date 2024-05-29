@@ -51,7 +51,7 @@
 			<string>FireBase Developement</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>app-1-1014769814307:ios:c091654308d1f10953da96</string>
+				<string>app-1-1014769814307-ios-c091654308d1f10953da96</string>
 			</array>
 		</dict>
 	</array>
@@ -92,7 +92,7 @@
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string>Launch Screen.storyboard</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -101,6 +101,8 @@
 	</array>
 	<key>UIRequiresFullScreen</key>
 	<true/>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleDarkContent</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

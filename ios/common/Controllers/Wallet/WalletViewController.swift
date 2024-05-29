@@ -18,6 +18,8 @@ class WalletViewController: FormViewController {
     var paymentField: STPPaymentCardTextField?
     var amount: Double?
     var currency: String?
+    var tokenPaypal: String?
+
     let amounts: [Double] = [5, 20, 50]
     var methodsRow: SegmentedRow<PaymentGateway> {
         get {
@@ -37,12 +39,12 @@ class WalletViewController: FormViewController {
         }
     }
     
-    var creditsRow: PushRow<Wallet> {
-        get {
-            return (self.form.rowBy(tag: "credits") as? PushRow<Wallet>)!
-        }
-    }
-    
+//    var creditsRow: PushRow<Wallet> {
+//        get {
+//            return (self.form.rowBy(tag: "credits") as? PushRow<Wallet>)!
+//        }
+//    }
+//
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,8 +63,8 @@ class WalletViewController: FormViewController {
                     self.navigationController?.popViewController(animated: true)
                     return
                 }
-                self.creditsRow.options = methods.wallet
-                self.creditsRow.updateCell()
+//                self.creditsRow.options = methods.wallet
+//                self.creditsRow.updateCell()
                 self.methodsRow.options = methods.gateways
                 self.methodsRow.value = self.methodsRow.options![0]
                 self.methodsRow.updateCell()
@@ -73,21 +75,21 @@ class WalletViewController: FormViewController {
                     self.methodsRow.evaluateHidden()
                 }
                 if self.amount != nil {
-                    self.creditsRow.value = self.creditsRow.options!.first() { $0.currency == self.currency }
-                    self.creditsRow.updateCell()
-                    self.amountRow.value = self.amount! - (self.creditsRow.value?.amount ?? 0)
-                    if self.creditsRow.value == nil {
-                        self.creditsRow.hidden = true
-                        self.creditsRow.evaluateHidden()
-                    }
+                   // self.creditsRow.value = self.creditsRow.options!.first() { $0.currency == self.currency }
+                   // self.creditsRow.updateCell()
+                    self.amountRow.value = self.amount! ///- (self.creditsRow.value?.amount ?? 0)
+//                    if self.creditsRow.value == nil {
+//                        self.creditsRow.hidden = true
+//                        self.creditsRow.evaluateHidden()
+//                    }
                     if self.amountRow.value! <= 0.0 {
                         self.navigationController?.popViewController(animated: true)
                     }
                     self.amountRow.cell.stepper.minimumValue = self.amount!
                     self.amountRow.reload()
                 } else {
-                    self.creditsRow.value = self.creditsRow.options!.first
-                    self.creditsRow.updateCell()
+                   // self.creditsRow.value = self.creditsRow.options!.first
+                    //self.creditsRow.updateCell()
                 }
                 
             case .failure(let error):
@@ -108,22 +110,22 @@ class WalletViewController: FormViewController {
                 }
                 $0.hidden = Condition(booleanLiteral: (self.amount == nil))
             }
-            <<< PushRow<Wallet>("credits") {
-                $0.title = "Credit"
-                $0.selectorTitle = NSLocalizedString("Current Credit", comment: "")
-                $0.disabled = Condition(booleanLiteral: (self.currency != nil))
-                $0.displayValueFor = {
-                    if $0 == nil { return nil }
-                    let formatter = NumberFormatter()
-                    formatter.locale = Locale.current
-                    formatter.numberStyle = .currency
-                    formatter.currencyCode = $0!.currency
-                    return formatter.string(from: NSNumber(value: $0!.amount!))!
-                }
-            }
-        form +++ Section(NSLocalizedString("Add credit", comment: "Wallet section title")) {
-            $0.tag = "sec_add_credit"
-            }
+//            <<< PushRow<Wallet>("credits") {
+//                $0.title = "Credit"
+//                $0.selectorTitle = NSLocalizedString("Current Credit", comment: "")
+//                $0.disabled = Condition(booleanLiteral: (self.currency != nil))
+//                $0.displayValueFor = {
+//                    if $0 == nil { return nil }
+//                    let formatter = NumberFormatter()
+//                    formatter.locale = Locale.current
+//                    formatter.numberStyle = .currency
+//                    formatter.currencyCode = $0!.currency
+//                    return formatter.string(from: NSNumber(value: $0!.amount!))!
+//                }
+//            }
+//        form +++ Section(NSLocalizedString("Add credit", comment: "Wallet section title")) {
+//            $0.tag = "sec_add_credit"
+//            }
             <<< SegmentedRow<PaymentGateway>("methods") {
                 $0.options = []
                 $0.hidden = true
@@ -179,12 +181,26 @@ class WalletViewController: FormViewController {
                     
                 case .PayPal, .Paytm, .Razorpay, .Paystack, .PayU, .Instamojo, .MIPS, .CustomLink:
                     LoadingOverlay.shared.showOverlay(view: self.navigationController?.view)
-                    GetPaymentLink(gatewayId: self.methodsRow.value!.id, amount: self.amount!, currency: self.creditsRow.value?.currency ?? self.currency!).execute() { result in
+                    GetPaymentLink(gatewayId: self.methodsRow.value!.id, amount: self.amount!, currency: self.currency!).execute()//self.creditsRow.value?.currency ?? self.currency!).execute()
+                    
+                    { result in
                         LoadingOverlay.shared.hideOverlayView()
                         switch result {
                         case .success(let res):
                             let viewController = PaymentWebPageViewController()
                             viewController.url = res.url
+                            
+                            if let url = URL(string: res.url),
+                               let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
+                               let queryItems = components.queryItems {
+                                if let token = queryItems.first(where: { $0.name == "token" })?.value {
+                                    print("Token: \(token)")
+                                    self.tokenPaypal = token
+                                    
+                                }
+                            }
+                            
+                            
                             viewController.delegate = self
                             self.present(viewController, animated: true, completion: nil)
                             break
@@ -232,7 +248,7 @@ class WalletViewController: FormViewController {
         }
         let amountDouble = self.amount!
         var amountInt = 0
-        let currency = self.creditsRow.value?.currency ?? self.currency!
+        let currency = "" //self.creditsRow.value?.currency ?? self.currency!
         if currency == "USD" {
             amountInt = Int(amountDouble * 100)
         } else {
@@ -273,7 +289,9 @@ class WalletViewController: FormViewController {
     }
     
     func doPayment(token: String, amount: Double, pin: Int? = nil, otp: Int? = nil, transactionId: String? = nil) {
-        let dto = WalletTopUpDTO(gatewayId: self.methodsRow.value!.id, amount: amount, currency: self.creditsRow.value?.currency ?? self.currency!, token: token, pin: pin, otp: otp, transactionId: transactionId)
+//        let dto = WalletTopUpDTO(gatewayId: self.methodsRow.value!.id, amount: amount, currency: self.creditsRow.value?.currency ?? self.currency!, token: token, pin: pin, otp: otp, transactionId: transactionId)
+        let dto = WalletTopUpDTO(gatewayId: self.methodsRow.value!.id, amount: amount, currency: "", token: token, pin: pin, otp: otp, transactionId: transactionId)
+
         WalletTopUp(dto: dto).execute { result in
             LoadingOverlay.shared.hideOverlayView()
             switch result {
@@ -316,9 +334,12 @@ extension WalletViewController: STPAuthenticationContext {
 }
 
 extension WalletViewController: WebPaymentResultDelegate {
-    func paid() {
-        _ = self.navigationController?.popViewController(animated: true)
-        SPAlert.present(title: NSLocalizedString("Payment Successful", comment: ""), preset: .done)
+    func paid(token:String , transactonID :String) {
+//        _ = self.navigationController?.popViewController(animated: true)
+//        SPAlert.present(title: NSLocalizedString("Payment Successful", comment: ""), preset: .done)
+//        
+        self.doPayment(token: token, amount: amount! , transactionId: transactonID)
+
     }
     
     func canceled() {

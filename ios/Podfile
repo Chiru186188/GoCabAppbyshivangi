@@ -9,7 +9,8 @@ def common_pods
   pod 'Eureka'
   pod 'ImageRow'
 pod 'Stripe' 
- pod 'BraintreeDropIn'
+pod 'Charts'
+pod 'BraintreeDropIn'
 end
 
 target 'rider' do

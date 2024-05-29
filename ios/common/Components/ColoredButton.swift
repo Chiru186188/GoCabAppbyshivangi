@@ -39,7 +39,7 @@ public class ColoredButton: UIButton {
         self.layer.cornerRadius = 6
         self.setTitleColor(UIColor.black, for: .normal)
         self.contentEdgeInsets = UIEdgeInsets(top: 10.0, left: 0, bottom: 10.0, right: 0)
-        let color = UIApplication.shared.keyWindow?.tintColor ?? self.tintColor
+        let color =  UIColor(named: "ThemeYellow")//UIApplication.shared.keyWindow?.tintColor ?? self.tintColor
         if self.isEnabled {
             self.backgroundColor = color
         } else {

@@ -11,7 +11,7 @@ import Lottie
 
 class LookingViewController: UIViewController {
     @IBOutlet weak var ViewLoading: UIView!
-    var animationView: AnimationView!
+    var animationView: LottieAnimationView!
     weak var delegate: LookingDelegate?
     @IBOutlet weak var textStatus: UILabel!
     @IBOutlet weak var blurView: UIView!
@@ -26,22 +26,22 @@ class LookingViewController: UIViewController {
         blurEffectView.frame = self.view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.blurView.addSubview(blurEffectView)
-        animationView = AnimationView(name: "car")
+        animationView = LottieAnimationView(name: "car")
         animationView.contentMode = .scaleAspectFit
         animationView.translatesAutoresizingMaskIntoConstraints = false
         animationView.loopMode = .loop
         animationView.backgroundColor = UIColor.clear
-       // ViewLoading.addSubview(animationView)
+        ViewLoading.addSubview(animationView)
         refreshUI()
     }
     
     override func updateViewConstraints() {
         super.updateViewConstraints()
-//        let horizontalConstraint = NSLayoutConstraint(item: animationView!, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: ViewLoading, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
-//        let verticalConstraint = NSLayoutConstraint(item: animationView!, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: ViewLoading, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0)
-//        let widthConstraint = NSLayoutConstraint(item: animationView!, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: ViewLoading, attribute: NSLayoutConstraint.Attribute.width, multiplier: 1, constant: 0)
-//        let heightConstraint = NSLayoutConstraint(item: animationView!, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: ViewLoading, attribute: NSLayoutConstraint.Attribute.height, multiplier: 1, constant: 0)
-//        ViewLoading.addConstraints([horizontalConstraint,verticalConstraint,widthConstraint,heightConstraint])
+        let horizontalConstraint = NSLayoutConstraint(item: animationView!, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: ViewLoading, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
+        let verticalConstraint = NSLayoutConstraint(item: animationView!, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: ViewLoading, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0)
+        let widthConstraint = NSLayoutConstraint(item: animationView!, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: ViewLoading, attribute: NSLayoutConstraint.Attribute.width, multiplier: 1, constant: 0)
+        let heightConstraint = NSLayoutConstraint(item: animationView!, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: ViewLoading, attribute: NSLayoutConstraint.Attribute.height, multiplier: 1, constant: 0)
+        ViewLoading.addConstraints([horizontalConstraint,verticalConstraint,widthConstraint,heightConstraint])
     }
     
     @objc func refreshPage() {
@@ -63,7 +63,7 @@ class LookingViewController: UIViewController {
     func refreshUI() {
         let travel = Request.shared
         switch(travel.status!) {
-        case .DriverAccepted, .Finished, .WaitingForPostPay, .WaitingForReview, .Started, .WaitingForPrePay, .Arrived:
+        case .DriverAccepted, .Finished, .WaitingForPostPay, .WaitingForReview, .Started, .WaitingForPrePay, .Arrived, .DriverMarkedPaymentNotReceived  :
             self.dismiss(animated: true, completion: nil)
             self.delegate?.found()
             break
@@ -75,7 +75,7 @@ class LookingViewController: UIViewController {
             
         case .Booked:
             self.buttonCancel.isEnabled = true
-            self.animationView.animation = Animation.named("check")
+            self.animationView.animation = LottieAnimation.named("check")
             self.animationView.loopMode = .playOnce
             self.animationView.play()
             self.textStatus.text = NSLocalizedString("Trip is booked & will be dispatched 30 minutes before pickup time. You can send app to background now.", comment: "")
@@ -93,7 +93,7 @@ class LookingViewController: UIViewController {
             
         case .Found, .NotFound, .NoCloseFound, .Requested:
             self.buttonCancel.isEnabled = true
-            self.animationView.animation = Animation.named("car")
+            self.animationView.animation = LottieAnimation.named("car")
             self.animationView.loopMode = .loop
             self.animationView.play()
             self.textStatus.text = NSLocalizedString("Looking for drivers...", comment: "")
@@ -141,7 +141,7 @@ class LookingViewController: UIViewController {
     
 }
 
-protocol LookingDelegate: class {
+protocol LookingDelegate: AnyObject {
     func found()
     func cancel()
 }

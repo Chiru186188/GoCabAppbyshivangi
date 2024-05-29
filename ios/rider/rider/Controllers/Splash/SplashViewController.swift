@@ -30,6 +30,8 @@ class SplashViewController: UIViewController {
             SocketNetworkDispatcher.instance.connect(namespace: .Rider, token: token, notificationId: fcmToken ?? "") { result in
                 switch result {
                 case .success(_):
+                    UserDefaults.standard.set("yes", forKey: "Firsttyme")
+
                     self.performSegue(withIdentifier: "segueShowHost", sender: nil)
                     
                 case .failure(let error):
@@ -68,6 +70,7 @@ class SplashViewController: UIViewController {
             case .success(let response):
                 UserDefaultsConfig.jwtToken = response.token
                 UserDefaultsConfig.user = try! response.user.asDictionary()
+                UserDefaults.standard.set("yes", forKey: "Firsttyme")
                 self.connectSocket(token: response.token)
                 
             case .failure(let error):
