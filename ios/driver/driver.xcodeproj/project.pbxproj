@@ -736,7 +736,7 @@
 			mainGroup = 62B6FDAB1F71059900F66611;
 			packageReferences = (
 				4C481A20258229370051E415 /* XCRemoteSwiftPackageReference "SPAlert" */,
-				4C481A4C25826D100051E415 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
+				4C481A4C25826D100051E415 /* XCRemoteSwiftPackageReference "socket" */,
 				4C481A7E2582717F0051E415 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				4C481A88258271CF0051E415 /* XCRemoteSwiftPackageReference "MessageKit" */,
 				4C74D44F25835F08009831B6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
@@ -1239,7 +1239,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gocabs.driver;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gocab.drivers;
 				PRODUCT_NAME = "Go Cabs Driver";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1267,7 +1267,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gocabs.driver;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gocab.drivers;
 				PRODUCT_NAME = "Go Cabs Driver";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1319,7 +1319,7 @@
 				minimumVersion = 2.1.4;
 			};
 		};
-		4C481A4C25826D100051E415 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
+		4C481A4C25826D100051E415 /* XCRemoteSwiftPackageReference "socket" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
 			requirement = {
@@ -1361,7 +1361,7 @@
 		};
 		4C481A4D25826D100051E415 /* SocketIO */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4C481A4C25826D100051E415 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
+			package = 4C481A4C25826D100051E415 /* XCRemoteSwiftPackageReference "socket" */;
 			productName = SocketIO;
 		};
 		4C481A7F2582717F0051E415 /* Lottie */ = {

@@ -2001,25 +2001,25 @@
     </scenes>
     <designables>
         <designable name="4gk-mA-be8">
-            <size key="intrinsicContentSize" width="133" height="41"/>
+            <size key="intrinsicContentSize" width="133" height="33"/>
         </designable>
         <designable name="4qI-LT-UqT">
-            <size key="intrinsicContentSize" width="48" height="38"/>
+            <size key="intrinsicContentSize" width="48" height="30"/>
         </designable>
         <designable name="4xf-B2-cPM">
-            <size key="intrinsicContentSize" width="127" height="41"/>
+            <size key="intrinsicContentSize" width="127" height="33"/>
         </designable>
         <designable name="O3k-hU-9yw">
-            <size key="intrinsicContentSize" width="97" height="38"/>
+            <size key="intrinsicContentSize" width="97" height="30"/>
         </designable>
         <designable name="TGw-TV-i4G">
-            <size key="intrinsicContentSize" width="137" height="41"/>
+            <size key="intrinsicContentSize" width="137" height="33"/>
         </designable>
         <designable name="UEa-fe-hJR">
             <size key="intrinsicContentSize" width="133" height="33"/>
         </designable>
         <designable name="YnQ-Yl-MeU">
-            <size key="intrinsicContentSize" width="55" height="41"/>
+            <size key="intrinsicContentSize" width="55" height="33"/>
         </designable>
         <designable name="ZAI-5h-uDN">
             <size key="intrinsicContentSize" width="26" height="38"/>
@@ -2034,7 +2034,7 @@
             <size key="intrinsicContentSize" width="113" height="33"/>
         </designable>
         <designable name="w6Z-5H-pYJ">
-            <size key="intrinsicContentSize" width="25" height="38"/>
+            <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
     </designables>
     <resources>
@@ -2069,7 +2069,7 @@
         <image name="preferred Drivers" width="128" height="118"/>
         <image name="remove" width="80" height="21"/>
         <namedColor name="ThemeYellow">
-            <color red="0.99607843137254903" green="0.8901960784313725" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.99599999189376831" green="0.88999998569488525" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="collectionViewBackground">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
