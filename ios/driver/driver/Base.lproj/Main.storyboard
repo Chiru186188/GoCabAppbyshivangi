@@ -241,7 +241,7 @@
                                 <rect key="frame" x="0.0" y="260.66666666666669" width="414" height="635.33333333333326"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZyA-B3-N3K">
-                                        <rect key="frame" x="20" y="0.0" width="149" height="220"/>
+                                        <rect key="frame" x="20" y="20" width="149" height="220"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Nar-vb-OJJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="149" height="36"/>
@@ -359,7 +359,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="ZyA-B3-N3K" firstAttribute="top" secondItem="k5d-ZO-3md" secondAttribute="top" id="Mdo-VV-5Dm"/>
+                                    <constraint firstItem="ZyA-B3-N3K" firstAttribute="top" secondItem="k5d-ZO-3md" secondAttribute="top" constant="20" id="Mdo-VV-5Dm"/>
                                     <constraint firstItem="ZyA-B3-N3K" firstAttribute="leading" secondItem="k5d-ZO-3md" secondAttribute="leading" constant="20" id="nHf-fR-vbL"/>
                                     <constraint firstAttribute="trailing" secondItem="ZyA-B3-N3K" secondAttribute="trailing" id="yuR-vx-tfw"/>
                                 </constraints>
@@ -852,13 +852,13 @@
             <size key="intrinsicContentSize" width="41" height="30"/>
         </designable>
         <designable name="5uL-fA-bxz">
-            <size key="intrinsicContentSize" width="50" height="38"/>
+            <size key="intrinsicContentSize" width="50" height="30"/>
         </designable>
         <designable name="73L-uu-mEt">
-            <size key="intrinsicContentSize" width="48" height="38"/>
+            <size key="intrinsicContentSize" width="48" height="30"/>
         </designable>
         <designable name="AmM-Hg-Zpg">
-            <size key="intrinsicContentSize" width="34" height="38"/>
+            <size key="intrinsicContentSize" width="34" height="30"/>
         </designable>
         <designable name="Yuw-2l-tJc">
             <size key="intrinsicContentSize" width="107" height="33"/>

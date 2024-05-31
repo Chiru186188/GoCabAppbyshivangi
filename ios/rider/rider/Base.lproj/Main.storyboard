@@ -687,7 +687,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBA-GK-dPe" customClass="LOTAnimatedControl">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBA-GK-dPe" customClass="LottieAnimationView" customModule="Lottie">
                                 <rect key="frame" x="50" y="123.5" width="220" height="220"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -739,7 +739,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ViewLoading" destination="rBA-GK-dPe" id="IUG-sq-Lr2"/>
+                        <outlet property="ViewLoading" destination="rBA-GK-dPe" id="VbH-rb-Vdj"/>
                         <outlet property="blurView" destination="IJr-vg-Xhg" id="4R4-Of-oam"/>
                         <outlet property="buttonCancel" destination="YnQ-Yl-MeU" id="BDt-hB-sAA"/>
                         <outlet property="textStatus" destination="XIF-2z-h7T" id="ddB-fQ-wnR"/>
@@ -2022,13 +2022,13 @@
             <size key="intrinsicContentSize" width="55" height="33"/>
         </designable>
         <designable name="ZAI-5h-uDN">
-            <size key="intrinsicContentSize" width="26" height="38"/>
+            <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
         <designable name="bs0-ma-Cfy">
             <size key="intrinsicContentSize" width="75" height="33"/>
         </designable>
         <designable name="dLp-wh-UaX">
-            <size key="intrinsicContentSize" width="62" height="38"/>
+            <size key="intrinsicContentSize" width="62" height="30"/>
         </designable>
         <designable name="vd8-M7-5It">
             <size key="intrinsicContentSize" width="113" height="33"/>

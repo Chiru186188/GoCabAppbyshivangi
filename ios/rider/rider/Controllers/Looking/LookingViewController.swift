@@ -10,13 +10,13 @@ import UIKit
 import Lottie
 
 class LookingViewController: UIViewController {
-    @IBOutlet weak var ViewLoading: UIView!
     var animationView: LottieAnimationView!
     weak var delegate: LookingDelegate?
     @IBOutlet weak var textStatus: UILabel!
     @IBOutlet weak var blurView: UIView!
     @IBOutlet weak var buttonCancel: ColoredButton!
     
+    @IBOutlet weak var ViewLoading: LottieAnimationView!
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(self.onDriverAccepted), name: .newDriverAccepted, object: nil)
