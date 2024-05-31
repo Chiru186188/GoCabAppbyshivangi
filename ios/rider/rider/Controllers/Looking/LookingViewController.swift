@@ -44,6 +44,7 @@ class LookingViewController: UIViewController {
         viewloadingview.addConstraints([horizontalConstraint,verticalConstraint,widthConstraint,heightConstraint])
     }
     
+    
     @objc func refreshPage() {
         LoadingOverlay.shared.showOverlay(view: self.view)
         GetCurrentRequestInfo().execute() { result in
