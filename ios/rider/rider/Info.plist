@@ -31,7 +31,7 @@
 			<string>Firebase </string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>app-1-400448589719-ios-218a461cee6147a429fed2</string>
+				<string>app-1-1014769814307-ios-51ba435f22208d0f53da96</string>
 			</array>
 		</dict>
 		<dict>
@@ -51,7 +51,7 @@
 			<string>Firebase</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>app-1-1014769814307-ios-9a46e9512d887c4653da96</string>
+				<string>app-1-1014769814307-ios-51ba435f22208d0f53da96</string>
 			</array>
 		</dict>
 	</array>

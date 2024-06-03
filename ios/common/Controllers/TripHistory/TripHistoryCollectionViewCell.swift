@@ -16,4 +16,16 @@ class TripHistoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var background: UIView!
     @IBOutlet weak var textCost: UILabel!
     @IBOutlet weak var textStatus: UILabel!
+    
+    @IBOutlet weak var distance: UILabel!
+    @IBOutlet weak var Amountlbl: UILabel!
+    @IBOutlet weak var idLabel: UILabel!
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        background.layer.borderColor = UIColor.darkGray.cgColor
+        
+        background.layer.borderWidth = 1
+        
+        
+    }
 }

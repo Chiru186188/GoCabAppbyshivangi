@@ -35,7 +35,7 @@ class TripHistoryCollectionViewController: UICollectionViewController, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let kWhateverHeightYouWant = 150
+        let kWhateverHeightYouWant = 272
         return CGSize(width: collectionView.bounds.size.width - 16, height: CGFloat(kWhateverHeightYouWant))
     }
     

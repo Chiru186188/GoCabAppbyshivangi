@@ -139,6 +139,7 @@
 		844455992BF7601E0070FC6B /* ride_start.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 844455942BF7601D0070FC6B /* ride_start.mp3 */; };
 		8444559A2BF7601E0070FC6B /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 844455952BF7601D0070FC6B /* notification.mp3 */; };
 		8444559C2BF76ED70070FC6B /* driver_arrived.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8444559B2BF76ED70070FC6B /* driver_arrived.mp3 */; };
+		8451C30D2C0DD86B006FD42F /* GoogleService-Info (26).plist in Resources */ = {isa = PBXBuildFile; fileRef = 8451C30C2C0DD86A006FD42F /* GoogleService-Info (26).plist */; };
 		84882DC42BFF1E1000178689 /* CustomSliderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84882DC22BFF1E1000178689 /* CustomSliderButton.swift */; };
 		84882DC52BFF1E1000178689 /* CustomSliderbutton2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84882DC32BFF1E1000178689 /* CustomSliderbutton2.swift */; };
 		84D61F602BFCC79B0098485E /* MTSlideToOpenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D61F5F2BFCC79B0098485E /* MTSlideToOpenView.swift */; };
@@ -287,6 +288,7 @@
 		844455942BF7601D0070FC6B /* ride_start.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ride_start.mp3; sourceTree = "<group>"; };
 		844455952BF7601D0070FC6B /* notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = notification.mp3; path = ../../../../notification.mp3; sourceTree = "<group>"; };
 		8444559B2BF76ED70070FC6B /* driver_arrived.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = driver_arrived.mp3; sourceTree = "<group>"; };
+		8451C30C2C0DD86A006FD42F /* GoogleService-Info (26).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info (26).plist"; sourceTree = "<group>"; };
 		84882DC22BFF1E1000178689 /* CustomSliderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSliderButton.swift; sourceTree = "<group>"; };
 		84882DC32BFF1E1000178689 /* CustomSliderbutton2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSliderbutton2.swift; sourceTree = "<group>"; };
 		84D61F5F2BFCC79B0098485E /* MTSlideToOpenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSlideToOpenView.swift; sourceTree = "<group>"; };
@@ -665,6 +667,7 @@
 			isa = PBXGroup;
 			children = (
 				08D141532BD1075300E34446 /* GoogleService-Info.plist */,
+				8451C30C2C0DD86A006FD42F /* GoogleService-Info (26).plist */,
 				0824E3AA2BCD5FA50008B102 /* GoogleService-Info.plist (Production) */,
 				4CB5FC4323A79FA400F2D5BC /* Components */,
 				62F4D8BF20154900000933DA /* Models */,
@@ -865,6 +868,7 @@
 				62D714D2209C4F5D0043ABFB /* FavoriteAddressDialogViewController.xib in Resources */,
 				08D141542BD1075300E34446 /* GoogleService-Info.plist in Resources */,
 				844455962BF7601E0070FC6B /* ride_cancel.mp3 in Resources */,
+				8451C30D2C0DD86B006FD42F /* GoogleService-Info (26).plist in Resources */,
 				843EAB532BFCA4130085A8E5 /* Launch Screen.storyboard in Resources */,
 				8444559A2BF7601E0070FC6B /* notification.mp3 in Resources */,
 			);

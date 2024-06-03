@@ -739,10 +739,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ViewLoading" destination="rBA-GK-dPe" id="ANF-ML-cTg"/>
                         <outlet property="blurView" destination="IJr-vg-Xhg" id="4R4-Of-oam"/>
                         <outlet property="buttonCancel" destination="YnQ-Yl-MeU" id="BDt-hB-sAA"/>
                         <outlet property="textStatus" destination="XIF-2z-h7T" id="ddB-fQ-wnR"/>
+                        <outlet property="viewloadingview" destination="rBA-GK-dPe" id="6vo-Bj-HwA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WiH-r7-gZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
