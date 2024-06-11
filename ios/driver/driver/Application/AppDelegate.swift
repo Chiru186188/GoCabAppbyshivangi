@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Rider
+//  driver
 //
 //  Copyright © 2018 minimalistic apps. All rights reserved.
 //
@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 //    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 //        FUIAuth.defaultAuthUI()?.auth?.canHandleNotification(userInfo)
 //    }
-//
+
 
     
     
@@ -67,20 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // FirebaseApp.configure()
-        
-//        RazorpayCheckout.setKey("YOUR_RAZORPAY_API_KEY")
-      //  let razorpay = RazorpayCheckout.initWithKey("YOUR_RAZORPAY_KEY", andDelegate: self)
 
-//
-//        let payUConfiguration = PayUConfiguration.self
-//        PayUSDK.initialize(apiKey: payUConfiguration.apiKey, apiSecretKey: payUConfiguration.apiSecretKey, merchantId: payUConfiguration.merchantId, environment: payUConfiguration.environment)
-//
-//
-//        GMSPlacesClient.provideAPIKey("AIzaSyBn5gHHZP-V3517BQ163GxfuGZFckbefq8")
-//
-//        GMSServices.provideAPIKey("AIzaSyBn5gHHZP-V3517BQ163GxfuGZFckbefq8")
-//
         UserDefaults.standard.set("eDAt9YjlnkR3o7JhslF_Fw:APA91bFEyMZXsB8JWTzrvVaz9xGXFIo-ctTHPS1qdYmUpgJI4t29dzz6VjSQKnxDFFZ6bn6tPbOtXNolpef0f8-s2t14mP-FSfvLSXfGTOR00V5PYj0BYcrRvAYUkUdOh4eHN7yPeqIx", forKey: "devicetoken")
         FirebaseApp .configure()
         Messaging.messaging().delegate = self
@@ -122,22 +109,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             
             // Fallback on earlier versions
         }
-//    return true
-        
-       // razorpay = RazorpayCheckout.initWithKey("rzp_test_5TvihLaAB5Cw3l", andDelegate: self)
-
-   
-     //   Stripe.setDefaultPublishableKey("pk_test_51NgLDISE7jTLonNSqrc5nylSHJcp0ijO0qd9R2VDQw3w37uif2yASpc8dJU3LwBGdaQJsNTz7rwFh4kylzAy56nE00kiCrsIcP")
-        
-        
         
         let navigationBarAppearace = UINavigationBar.appearance()
 
         navigationBarAppearace.tintColor = UIColor(named: "ThemeYellow")
         navigationBarAppearace.barTintColor = .black
-//        navigationBarAppearace.isTranslucent = false
-//        navigationBarAppearace.backgroundColor = .black
-        // change navigation item title color
+
         navigationBarAppearace.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "ThemeYellow")]
         
         
@@ -205,14 +182,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         
-        
-        FUIAuth.defaultAuthUI()?.auth?.setAPNSToken(deviceToken, type: AuthAPNSTokenType.unknown)
+        FUIAuth.defaultAuthUI()?.auth?.setAPNSToken(deviceToken, type: AuthAPNSTokenType.prod)
 
         let firebaseAuth = Auth.auth()
         
-        firebaseAuth.setAPNSToken(deviceToken, type: AuthAPNSTokenType.sandbox)
+        firebaseAuth.setAPNSToken(deviceToken, type: AuthAPNSTokenType.prod)
         
-        //   Auth.auth().setAPNSToken(deviceToken, type: .prod)
+//      Auth.auth().setAPNSToken(deviceToken, type: .prod)
        
         var token = ""
         Messaging.messaging().apnsToken = deviceToken
@@ -224,8 +200,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print("Registration succeeded!")
         print("Token: ", token)
         UserDefaults.standard.set(token, forKey: "devicetoken")
+        
+        
     }
-    
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         application.applicationIconBadgeNumber = 0
@@ -234,6 +211,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     
     func applicationWillTerminate(_ application: UIApplication) {
+        
     }
     
 }

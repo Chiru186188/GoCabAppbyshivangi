@@ -4,7 +4,7 @@
 <dict>
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
-		<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+		<string>com.gocab.rider.new</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
@@ -31,7 +31,7 @@
 			<string>Firebase </string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>app-1-1014769814307-ios-51ba435f22208d0f53da96</string>
+				<string>app-1-400448589719-ios-f87c7238d175953e29fed2</string>
 			</array>
 		</dict>
 		<dict>
@@ -51,7 +51,7 @@
 			<string>Firebase</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>app-1-1014769814307-ios-51ba435f22208d0f53da96</string>
+				<string>app-1-1014769814307-ios-052cccbf865b097253da96</string>
 			</array>
 		</dict>
 	</array>
@@ -69,7 +69,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MaximumDestinations</key>
-	<integer>2</integer>
+	<array/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>CFBundleShortVersionString</key>
@@ -89,6 +89,7 @@
 	<false/>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>fetch</string>
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

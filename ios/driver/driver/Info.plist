@@ -31,27 +31,7 @@
 			<string>Firebase</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>app-1-400448589719-ios-b721d4505f714e6129fed2</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string>Braintree</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>com.innomalist.taxi.driver.payments</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string>FireBase Developement</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>app-1-1014769814307-ios-c091654308d1f10953da96</string>
+				<string>app-1-1014769814307-ios-bc4f526b8e9488f653da96</string>
 			</array>
 		</dict>
 	</array>
@@ -78,11 +58,11 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Access to camera is required to upload your profile picture/documentations. This informations are used by admin to verify your identity and profile picture might be also shown to rider whom you have accepted to take their ride.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>You can let app send your current location to be shared with user when app is in foreground or when it's on backgroud too.</string>
+	<string>You can let app send your current location to be shared with user when app is in foreground or when it&apos;s on backgroud too.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>By granting access to location always app will be able to send your location to user even when app is not in foreground.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>You can let location updates only when app is in foreground. Location updates won't be sent to user when app is not in foreground.</string>
+	<string>You can let location updates only when app is in foreground. Location updates won&apos;t be sent to user when app is not in foreground.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Access to photos is needed to upload your selected image.</string>
 	<key>UIBackgroundModes</key>

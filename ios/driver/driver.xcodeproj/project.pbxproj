@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08C4FFC42BD0EF1600F35C0E /* GoogleService-Info.plist (Production) in Resources */ = {isa = PBXBuildFile; fileRef = 08C4FFC32BD0EF1600F35C0E /* GoogleService-Info.plist (Production) */; };
-		08D141522BD1069900E34446 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08D141512BD1069900E34446 /* GoogleService-Info.plist */; };
+		081CEAF12C22A5BA004F9744 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 081CEAF02C22A5BA004F9744 /* GoogleService-Info.plist */; };
+		0894AF422C2152DB00672D31 /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0894AF412C2152DB00672D31 /* notification.mp3 */; };
+		08D141522BD1069900E34446 /* GoogleService-Info().plist in Resources */ = {isa = PBXBuildFile; fileRef = 08D141512BD1069900E34446 /* GoogleService-Info().plist */; };
 		4C215E98238C06CC0013D720 /* LocationUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C215E97238C06CC0013D720 /* LocationUpdate.swift */; };
 		4C3E189D23AE12A20073FB05 /* WalletInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3E189C23AE12A20073FB05 /* WalletInfo.swift */; };
 		4C3EDFA021AEB22000DECC01 /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3EDF9F21AEB22000DECC01 /* WalletViewController.swift */; };
@@ -118,7 +119,6 @@
 		8444558C2BF760030070FC6B /* ride_finished.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 844455872BF760020070FC6B /* ride_finished.mp3 */; };
 		8444558D2BF760030070FC6B /* new_ride.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 844455882BF760020070FC6B /* new_ride.mp3 */; };
 		8444558E2BF760030070FC6B /* ride_start.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 844455892BF760020070FC6B /* ride_start.mp3 */; };
-		8444558F2BF760030070FC6B /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8444558A2BF760030070FC6B /* notification.mp3 */; };
 		844455902BF760030070FC6B /* ride_cancel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8444558B2BF760030070FC6B /* ride_cancel.mp3 */; };
 		846DFCA32BFDBAB000E4BF05 /* CustomSliderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846DFCA22BFDBAAF00E4BF05 /* CustomSliderButton.swift */; };
 		84882DC12BFF1D9300178689 /* CustomSliderbutton2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84882DC02BFF1D9300178689 /* CustomSliderbutton2.swift */; };
@@ -138,8 +138,9 @@
 
 /* Begin PBXFileReference section */
 		032FFEB4F8FA8B2195FA9D9B /* Pods-driver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-driver.debug.xcconfig"; path = "Target Support Files/Pods-driver/Pods-driver.debug.xcconfig"; sourceTree = "<group>"; };
-		08C4FFC32BD0EF1600F35C0E /* GoogleService-Info.plist (Production) */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "GoogleService-Info.plist (Production)"; sourceTree = "<group>"; };
-		08D141512BD1069900E34446 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		081CEAF02C22A5BA004F9744 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0894AF412C2152DB00672D31 /* notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = notification.mp3; sourceTree = "<group>"; };
+		08D141512BD1069900E34446 /* GoogleService-Info().plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info().plist"; sourceTree = "<group>"; };
 		4C215E97238C06CC0013D720 /* LocationUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUpdate.swift; sourceTree = "<group>"; };
 		4C3E189C23AE12A20073FB05 /* WalletInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WalletInfo.swift; path = ../../../../common/Networking/WebSocket/WalletInfo.swift; sourceTree = "<group>"; };
 		4C3EDF9F21AEB22000DECC01 /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
@@ -250,7 +251,6 @@
 		844455872BF760020070FC6B /* ride_finished.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ride_finished.mp3; sourceTree = "<group>"; };
 		844455882BF760020070FC6B /* new_ride.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = new_ride.mp3; sourceTree = "<group>"; };
 		844455892BF760020070FC6B /* ride_start.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ride_start.mp3; sourceTree = "<group>"; };
-		8444558A2BF760030070FC6B /* notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = notification.mp3; path = ../../../../notification.mp3; sourceTree = "<group>"; };
 		8444558B2BF760030070FC6B /* ride_cancel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ride_cancel.mp3; sourceTree = "<group>"; };
 		846DFCA22BFDBAAF00E4BF05 /* CustomSliderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSliderButton.swift; sourceTree = "<group>"; };
 		84882DC02BFF1D9300178689 /* CustomSliderbutton2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSliderbutton2.swift; sourceTree = "<group>"; };
@@ -508,8 +508,8 @@
 		62B6FDB61F71059900F66611 /* Driver */ = {
 			isa = PBXGroup;
 			children = (
-				08D141512BD1069900E34446 /* GoogleService-Info.plist */,
-				08C4FFC32BD0EF1600F35C0E /* GoogleService-Info.plist (Production) */,
+				08D141512BD1069900E34446 /* GoogleService-Info().plist */,
+				081CEAF02C22A5BA004F9744 /* GoogleService-Info.plist */,
 				4C6AB3E023BD1A9700FAF6FE /* cash.json */,
 				4CB050FE23A6622B0028DF0E /* Components */,
 				62A08DFF1F73E9BE003A4F1A /* Models */,
@@ -521,7 +521,7 @@
 				62A08DFD1F73CDED003A4F1A /* background.jpg */,
 				62B6FDBE1F71059900F66611 /* Assets.xcassets */,
 				844455882BF760020070FC6B /* new_ride.mp3 */,
-				8444558A2BF760030070FC6B /* notification.mp3 */,
+				0894AF412C2152DB00672D31 /* notification.mp3 */,
 				8444558B2BF760030070FC6B /* ride_cancel.mp3 */,
 				844455872BF760020070FC6B /* ride_finished.mp3 */,
 				844455892BF760020070FC6B /* ride_start.mp3 */,
@@ -768,19 +768,19 @@
 				8444558D2BF760030070FC6B /* new_ride.mp3 in Resources */,
 				4C826C5B245982D700471DFC /* Localizable.strings in Resources */,
 				62398B301F72C11400327E77 /* RequestCard.xib in Resources */,
-				08C4FFC42BD0EF1600F35C0E /* GoogleService-Info.plist (Production) in Resources */,
 				62A08DFE1F73CDED003A4F1A /* background.jpg in Resources */,
 				844455902BF760030070FC6B /* ride_cancel.mp3 in Resources */,
 				62B6FDBD1F71059900F66611 /* Main.storyboard in Resources */,
-				8444558F2BF760030070FC6B /* notification.mp3 in Resources */,
-				08D141522BD1069900E34446 /* GoogleService-Info.plist in Resources */,
+				08D141522BD1069900E34446 /* GoogleService-Info().plist in Resources */,
 				4CB8C43423D4DB6400F4BF90 /* EarningScreen.xib in Resources */,
 				843EAB512BFCA3620085A8E5 /* Launch Screen.storyboard in Resources */,
+				081CEAF12C22A5BA004F9744 /* GoogleService-Info.plist in Resources */,
 				8444558C2BF760030070FC6B /* ride_finished.mp3 in Resources */,
 				4C6AB3DF23BD149E00FAF6FE /* WaitingForPayment.xib in Resources */,
 				8444558E2BF760030070FC6B /* ride_start.mp3 in Resources */,
 				4C6AB3E123BD1A9700FAF6FE /* cash.json in Resources */,
 				4CE9844621A81C3600900570 /* TransactionsCollectionViewCell.xib in Resources */,
+				0894AF422C2152DB00672D31 /* notification.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1239,7 +1239,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gocab.drivers;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gocab.drivers.new;
 				PRODUCT_NAME = "Go Cabs Driver";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1267,7 +1267,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gocab.drivers;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gocab.drivers.new;
 				PRODUCT_NAME = "Go Cabs Driver";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

@@ -244,17 +244,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
     }
-    
+   
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         
         
-        FUIAuth.defaultAuthUI()?.auth?.setAPNSToken(deviceToken, type: AuthAPNSTokenType.prod)
+        FUIAuth.defaultAuthUI()?.auth?.setAPNSToken(deviceToken, type: AuthAPNSTokenType.sandbox)
 
         let firebaseAuth = Auth.auth()
         
-        firebaseAuth.setAPNSToken(deviceToken, type: AuthAPNSTokenType.prod)
+        firebaseAuth.setAPNSToken(deviceToken, type: AuthAPNSTokenType.sandbox)
         
-        //   Auth.auth().setAPNSToken(deviceToken, type: .prod)
        
         var token = ""
         Messaging.messaging().apnsToken = deviceToken
@@ -268,6 +267,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UserDefaults.standard.set(token, forKey: "devicetoken")
     }
     
+    
+//    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+//
+//        // Convert device token to a hexadecimal string
+//        let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+//        
+//        // Debugging: Print the raw device token
+//        print("Device Token (raw data): \(deviceToken)")
+//        print("Device Token (hex): \(token)")
+//
+//        // Set the token for Firebase Messaging
+//        Messaging.messaging().apnsToken = deviceToken
+//
+//        // Set the token for Firebase Auth (use the appropriate method)
+//        Auth.auth().setAPNSToken(deviceToken, type: .sandbox)  // Change to .prod if using in production
+//
+//        // Save the token to UserDefaults
+//        UserDefaults.standard.set(token, forKey: "devicetoken")
+//        
+//        print("Registration succeeded!")
+//        print("Token: ", token)
+//    }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         application.applicationIconBadgeNumber = 0

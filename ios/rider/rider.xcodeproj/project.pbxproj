@@ -3,12 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0824E3AB2BCD5FA50008B102 /* GoogleService-Info.plist (Production) in Resources */ = {isa = PBXBuildFile; fileRef = 0824E3AA2BCD5FA50008B102 /* GoogleService-Info.plist (Production) */; };
-		08D141542BD1075300E34446 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08D141532BD1075300E34446 /* GoogleService-Info.plist */; };
+		081CEAF32C22A611004F9744 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 081CEAF22C22A611004F9744 /* GoogleService-Info.plist */; };
+		0894AF442C21628E00672D31 /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0894AF432C21628E00672D31 /* notification.mp3 */; };
 		4C215E9C238D17950013D720 /* AddCoupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C215E9B238D17950013D720 /* AddCoupon.swift */; };
 		4C215E9E238D1BA70013D720 /* GetCoupons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C215E9D238D1BA70013D720 /* GetCoupons.swift */; };
 		4C215EA0238D1BEC0013D720 /* ApplyCoupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C215E9F238D1BEC0013D720 /* ApplyCoupon.swift */; };
@@ -137,9 +137,7 @@
 		844455972BF7601E0070FC6B /* ride_finished.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 844455922BF7601C0070FC6B /* ride_finished.mp3 */; };
 		844455982BF7601E0070FC6B /* new_ride.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 844455932BF7601C0070FC6B /* new_ride.mp3 */; };
 		844455992BF7601E0070FC6B /* ride_start.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 844455942BF7601D0070FC6B /* ride_start.mp3 */; };
-		8444559A2BF7601E0070FC6B /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 844455952BF7601D0070FC6B /* notification.mp3 */; };
 		8444559C2BF76ED70070FC6B /* driver_arrived.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8444559B2BF76ED70070FC6B /* driver_arrived.mp3 */; };
-		8451C30D2C0DD86B006FD42F /* GoogleService-Info (26).plist in Resources */ = {isa = PBXBuildFile; fileRef = 8451C30C2C0DD86A006FD42F /* GoogleService-Info (26).plist */; };
 		84882DC42BFF1E1000178689 /* CustomSliderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84882DC22BFF1E1000178689 /* CustomSliderButton.swift */; };
 		84882DC52BFF1E1000178689 /* CustomSliderbutton2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84882DC32BFF1E1000178689 /* CustomSliderbutton2.swift */; };
 		84D61F602BFCC79B0098485E /* MTSlideToOpenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D61F5F2BFCC79B0098485E /* MTSlideToOpenView.swift */; };
@@ -156,8 +154,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0824E3AA2BCD5FA50008B102 /* GoogleService-Info.plist (Production) */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "GoogleService-Info.plist (Production)"; sourceTree = "<group>"; };
-		08D141532BD1075300E34446 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		081CEAF22C22A611004F9744 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0894AF432C21628E00672D31 /* notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = notification.mp3; sourceTree = "<group>"; };
 		4C215E9B238D17950013D720 /* AddCoupon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCoupon.swift; sourceTree = "<group>"; };
 		4C215E9D238D1BA70013D720 /* GetCoupons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCoupons.swift; sourceTree = "<group>"; };
 		4C215E9F238D1BEC0013D720 /* ApplyCoupon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyCoupon.swift; sourceTree = "<group>"; };
@@ -286,9 +284,7 @@
 		844455922BF7601C0070FC6B /* ride_finished.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ride_finished.mp3; sourceTree = "<group>"; };
 		844455932BF7601C0070FC6B /* new_ride.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = new_ride.mp3; sourceTree = "<group>"; };
 		844455942BF7601D0070FC6B /* ride_start.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ride_start.mp3; sourceTree = "<group>"; };
-		844455952BF7601D0070FC6B /* notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = notification.mp3; path = ../../../../notification.mp3; sourceTree = "<group>"; };
 		8444559B2BF76ED70070FC6B /* driver_arrived.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = driver_arrived.mp3; sourceTree = "<group>"; };
-		8451C30C2C0DD86A006FD42F /* GoogleService-Info (26).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info (26).plist"; sourceTree = "<group>"; };
 		84882DC22BFF1E1000178689 /* CustomSliderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSliderButton.swift; sourceTree = "<group>"; };
 		84882DC32BFF1E1000178689 /* CustomSliderbutton2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSliderbutton2.swift; sourceTree = "<group>"; };
 		84D61F5F2BFCC79B0098485E /* MTSlideToOpenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSlideToOpenView.swift; sourceTree = "<group>"; };
@@ -646,6 +642,7 @@
 			isa = PBXGroup;
 			children = (
 				62CF116121BF0CEE0020C561 /* rider.entitlements */,
+				081CEAF22C22A611004F9744 /* GoogleService-Info.plist */,
 				62C774201F08EBC700E70C8B /* Rider */,
 				4CCAB08C2435ECD50015D577 /* ShotsUITests */,
 				62C7741F1F08EBC700E70C8B /* Products */,
@@ -666,9 +663,6 @@
 		62C774201F08EBC700E70C8B /* Rider */ = {
 			isa = PBXGroup;
 			children = (
-				08D141532BD1075300E34446 /* GoogleService-Info.plist */,
-				8451C30C2C0DD86A006FD42F /* GoogleService-Info (26).plist */,
-				0824E3AA2BCD5FA50008B102 /* GoogleService-Info.plist (Production) */,
 				4CB5FC4323A79FA400F2D5BC /* Components */,
 				62F4D8BF20154900000933DA /* Models */,
 				622BBD351F32236D00E14667 /* Networking */,
@@ -680,7 +674,7 @@
 				4C73EF0421DA70AD00DA1037 /* Assets.xcassets */,
 				62B6FD9C1F70F70A00F66611 /* Info.plist */,
 				844455932BF7601C0070FC6B /* new_ride.mp3 */,
-				844455952BF7601D0070FC6B /* notification.mp3 */,
+				0894AF432C21628E00672D31 /* notification.mp3 */,
 				844455912BF7601B0070FC6B /* ride_cancel.mp3 */,
 				844455922BF7601C0070FC6B /* ride_finished.mp3 */,
 				844455942BF7601D0070FC6B /* ride_start.mp3 */,
@@ -856,7 +850,6 @@
 				4C9C5F2121A80EF000F5353B /* TransactionsCollectionViewCell.xib in Resources */,
 				4C826C58245982D100471DFC /* Localizable.strings in Resources */,
 				4C73EF0521DA70AD00DA1037 /* Assets.xcassets in Resources */,
-				0824E3AB2BCD5FA50008B102 /* GoogleService-Info.plist (Production) in Resources */,
 				62972938223BB4D30084E2BB /* car.json in Resources */,
 				4CE9844F21A824CB00900570 /* PromotionsCollectionViewCell.xib in Resources */,
 				62B6FDAA1F70FF2200F66611 /* Main.storyboard in Resources */,
@@ -866,11 +859,10 @@
 				844455972BF7601E0070FC6B /* ride_finished.mp3 in Resources */,
 				8444559C2BF76ED70070FC6B /* driver_arrived.mp3 in Resources */,
 				62D714D2209C4F5D0043ABFB /* FavoriteAddressDialogViewController.xib in Resources */,
-				08D141542BD1075300E34446 /* GoogleService-Info.plist in Resources */,
 				844455962BF7601E0070FC6B /* ride_cancel.mp3 in Resources */,
-				8451C30D2C0DD86B006FD42F /* GoogleService-Info (26).plist in Resources */,
+				081CEAF32C22A611004F9744 /* GoogleService-Info.plist in Resources */,
 				843EAB532BFCA4130085A8E5 /* Launch Screen.storyboard in Resources */,
-				8444559A2BF7601E0070FC6B /* notification.mp3 in Resources */,
+				0894AF442C21628E00672D31 /* notification.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1288,7 +1280,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = VZNDPQUZYP;
+				DEVELOPMENT_TEAM = CV7UDY796Q;
 				INFOPLIST_FILE = rider/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1296,7 +1288,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gocab.rider;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gocab.rider.new;
 				PRODUCT_NAME = "Go Cabs Rider";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1381,7 +1373,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = VZNDPQUZYP;
+				DEVELOPMENT_TEAM = CV7UDY796Q;
 				INFOPLIST_FILE = rider/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1389,7 +1381,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gocab.rider;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gocab.rider.new;
 				PRODUCT_NAME = "Go Cabs Rider";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

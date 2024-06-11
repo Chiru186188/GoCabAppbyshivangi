@@ -12,15 +12,16 @@ import FirebaseMessaging
 import FirebaseAuthUI
 import FirebasePhoneAuthUI
 
-
 class SplashViewController: UIViewController {
     let defaults:UserDefaults = UserDefaults.standard
     @IBOutlet weak var indicatorLoading: UIActivityIndicatorView!
     @IBOutlet weak var textLoading: UILabel!
     @IBOutlet weak var buttonLogin: UIButton!
     override func viewDidLoad() {
-        
+      
+    
     }
+      
     func connectSocket(token:String) {
         Messaging.messaging().token() { (fcmToken, error) in
             if let error = error {
@@ -78,6 +79,8 @@ class SplashViewController: UIViewController {
             }
         }
     }
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         if let token = UserDefaultsConfig.jwtToken {
             connectSocket(token: token)
@@ -90,9 +93,11 @@ class SplashViewController: UIViewController {
 }
 extension SplashViewController: FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+        
         if(user == nil) {
             return
         }
+        
         indicatorLoading.isHidden = false
         textLoading.isHidden = false
         buttonLogin.isHidden = true
