@@ -142,10 +142,23 @@ class SplashViewController: UIViewController {
                 
             case .failure(let error):
                 error.showAlert()
-                self.loginState()
+                
+                
+                
+            self.loginState()
+                
             }
         }
     }
+    
+    
+   
+    
+    
+    
+    
+    
+    
 }
 
 extension SplashViewController: FUIAuthDelegate {

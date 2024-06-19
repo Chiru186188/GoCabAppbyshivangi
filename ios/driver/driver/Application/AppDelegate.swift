@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
 //    static var singlePointMode : Bool {
+    
+    //    static var singlePointMode : Bool {//    static var singlePointMode : Bool {//    static var singlePointMode : Bool {//    static var singlePointMode : Bool {//    static var singlePointMode : Bool {//    static var singlePointMode : Bool {//    static var singlePointMode : Bool {//    static var singlePointMode : Bool {
 //        get {
 //            return AppDelegate.info["SinglePointMode"] as! Bool
 //        }

@@ -90,7 +90,7 @@ class ViewController: UIViewController {
     //MARK: - UIButton Action
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         currentPage == onboardingSlides.count - 1 ? print("Get Started") : moveToNext()
-      vbdnbjkddfk
+        
     }
     
     private func moveToNext() {
