@@ -1,7 +1,6 @@
 //
 //  MTSlideToOpenControl.swift
-//  MTSlideToOpen
-//
+//  MTSlideToOpennkeklcwklklwr klmerklmerlkm
 //  Created by Martin Lee on 10/12/17.
 //  Copyright © 2017 Martin Le. All rights reserved.
 //
